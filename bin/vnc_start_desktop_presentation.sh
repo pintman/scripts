@@ -1,4 +1,5 @@
 #!/bin/bash
 
-x11vnc -nopw -viewonly -shared -forever
+x11vnc -nopw -viewonly -shared -forever $*
+
 
