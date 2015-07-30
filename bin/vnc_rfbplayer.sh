@@ -11,4 +11,7 @@ unzip -q -d $TMP $TMP/vncp.zip
 # start player with given file
 java -jar $TMP/RfbPlayer-1.4.0.1/RfbPlayer.jar URL file:$*
 
+# findout more under http://www.tightvnc.com/rfbplayer.php
+
+# remove the temp dir
 rm -rf $TMP
