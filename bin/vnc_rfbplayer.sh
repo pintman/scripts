@@ -2,7 +2,7 @@
 # use -x for debugging
 
 # destination for player
-DIR=$(dirname $0)/rfbplayer
+DIR=$(dirname $0)/vnc_rfbplayer
 
 if [[ !( -d $DIR) ]]
 then    
