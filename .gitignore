@@ -3,3 +3,5 @@
 
 # target directories
 bin/rfbplayer
+bin/vnc_viewer_jar
+
