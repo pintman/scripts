@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 # use -x for debugging
 
 TMP=$(mktemp -d)
