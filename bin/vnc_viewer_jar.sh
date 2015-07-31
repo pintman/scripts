@@ -15,5 +15,5 @@ fi
 
 # start viewer
 #java -cp classes/VncViewer.jar VncViewer HOST localhost
-java -cp $DIR/classes/VncViewer.jar VncViewer HOST localhost PORT 5901
+java -cp $DIR/classes/VncViewer.jar VncViewer HOST localhost PORT $*
 
