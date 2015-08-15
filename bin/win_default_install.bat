@@ -9,7 +9,7 @@ choco install chromium -y
 choco install git -y
 choco install putty -y
 choco install pdfcreator -y
-choco install cygwin -y
+choco install cygwin cyg-get -y
 choco install wireshark -y
 choco install foxitreader -y
 
