@@ -12,6 +12,6 @@ choco install pdfcreator -y
 choco install cygwin cyg-get -y
 choco install wireshark -y
 choco install foxitreader -y
-
+choco install totalcommander -y
 
 pause
