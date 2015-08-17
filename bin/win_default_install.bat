@@ -13,5 +13,10 @@ choco install cygwin cyg-get -y
 choco install wireshark -y
 choco install foxitreader -y
 choco install totalcommander -y
+choco install wget -y
+
+wget http://releases.0x539.de/gobby/gobby-stable.exe
+start /wait gobby-stable.exe
+del gobby-stable.exe
 
 pause
