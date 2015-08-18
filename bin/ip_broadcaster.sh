@@ -16,7 +16,7 @@
 
 # The interface that should be used to fetch the IP address.
 # default: eth0
-INTERFACE=br0
+INTERFACE=eth0
 
 #
 # Settings for the IRC-Server
@@ -49,6 +49,9 @@ MSG=":$USER has IP $IP"
 #
 # Configuration END
 #
+
+# check if we have an IP address.
+test -z "$IP" && exit 1
 
 # -s adjusts the speaking speed 
 echo $IP | espeak -s 120
