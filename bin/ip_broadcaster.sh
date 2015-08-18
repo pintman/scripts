@@ -43,8 +43,8 @@ IP=$(ifconfig $INTERFACE | grep "inet " | cut -d : -f 2 | cut -d ' ' -f 1)
 
 # A message that will be sent to the channel. Use ':' to start the message
 # part.  
-# default: ":$USER has IP $IP"
-MSG=":$USER has IP $IP"
+# default: ":My local IP is $IP"
+MSG=":My local IP is $IP"
 
 #
 # Configuration END
