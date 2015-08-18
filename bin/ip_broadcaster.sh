@@ -39,7 +39,7 @@ IRC_PORT=6667
 CHANNEL=#ip_broadcaster
 
 # Determine the IP address.
-IP=$(ifconfig $INTERFACE | grep "inet " | cut -d : -f 2 | cut -d ' ' -f 1)
+IP=$(/sbin/ifconfig $INTERFACE | grep "inet " | cut -d : -f 2 | cut -d ' ' -f 1)
 
 # A message that will be sent to the channel. Use ':' to start the message
 # part.  
