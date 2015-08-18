@@ -60,9 +60,12 @@ echo $IP | espeak -s 120
 #
 (
 echo NICK $USER
+sleep 2
 echo USER $USER 8 * : $USER
-sleep 5
+sleep 2
 echo "JOIN $CHANNEL"
+sleep 2
 echo "PRIVMSG $CHANNEL $MSG."
+sleep 2
 echo QUIT
 ) | nc $IRC_SERVER $IRC_PORT
