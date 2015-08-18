@@ -54,7 +54,9 @@ MSG=":My local IP is $IP"
 test -z "$IP" && exit 1
 
 # -s adjusts the speaking speed 
-echo $IP | espeak -s 120
+# the soundfile will be created first and played afterwards.
+echo $IP | espeak -s 120 -w /tmp/ip.wav
+aplay /tmp/ip.wav
 
 # send the ip to the irc server via nc
 #
