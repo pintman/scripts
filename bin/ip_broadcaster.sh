@@ -1,15 +1,13 @@
 #!/bin/bash
 
 # This script is used to determine and announce the currently active ip
-# addres. This can be used for a headless driven raspberry pi. I can be
-# installed in a crontab with 'crontab -e' and the entry
-#
-# or, to send it every minute:
+# address. It can be used for a headless driven raspberry pi. It should be
+# installed as crontab and executed every minute. Use 'crontab -e' and the
+# folloding entry to accomplish this.
 #
 # * * * * * /path/to/script.sh
 #
-# This will send the IP adresse every minute. Change the default settings to
-# your needs in the section below.
+# Change the default settings to your needs in the section below.
 #
 # Author: Marco Bakera
 #
@@ -26,7 +24,8 @@ INTERFACE=eth0
 # default: irc.freenode.net
 IRC_SERVER=irc.freenode.net
 
-# Username that will send  a message sent to an IRC channel.
+# Username that will send a message sent to an IRC channel. The hostname is a
+# good choice for this.
 # default: ip_broadcaster
 USER=ip_broadcaster
 
@@ -50,7 +49,7 @@ MSG=":My local IP is $IP"
 # Configuration END
 #
 
-# check if we have an IP address.
+# check if we have an IP address and terminate otherwise.
 test -z "$IP" && exit 1
 
 # -s adjusts the speaking speed 
