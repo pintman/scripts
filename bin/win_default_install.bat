@@ -2,7 +2,7 @@
 
 REM Setup a default environment in a new/fresh windows installation.
 
-REM Iinstall chocolately.org
+REM Install chocolately.org
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 
 REM Tools
@@ -13,7 +13,6 @@ cyg-get mc
 
 REM Applications
 choco install chromium -y
-choco install pdfcreator -y
 choco install wireshark -y
 choco install foxitreader -y
 choco install totalcommander -y
