@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Create some accounts. The list of username is given in this 
+# document. A standard password is provided.
+
 PASS=geheimnis
 
 USERS=$(cat << EOF
