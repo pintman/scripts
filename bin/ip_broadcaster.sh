@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # This script is used to determine and announce the currently active ip
-# address. It can be used for a headless driven raspberry pi. It should be
+# address. It can be used for a headless driven raspberry pi and should be
 # installed as crontab and executed every minute. Use 'crontab -e' and the
-# folloding entry to accomplish this.
+# following entry to accomplish this.
 #
 # * * * * * /path/to/script.sh
 #
@@ -20,12 +20,12 @@ INTERFACE=eth0
 # Settings for the IRC-Server
 #
 
-# Use this IRC-Server to send a message about the IP address.
+# Use this IRC-Server to send a message that contains the IP address.
 # default: irc.freenode.net
 IRC_SERVER=irc.freenode.net
 
-# Username that will send a message sent to an IRC channel. The hostname is a
-# good choice for this.
+# Username that will send a message to an IRC channel. The hostname is a good
+# choice for this.  
 # default: ip_broadcaster
 USER=ip_broadcaster
 
