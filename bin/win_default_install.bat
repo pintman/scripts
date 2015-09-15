@@ -12,6 +12,7 @@ choco install cygwin cyg-get -y
 cyg-get mc
 
 REM Applications
+choco install notepadplusplus -y
 choco install chromium -y
 choco install wireshark -y
 choco install foxitreader -y
