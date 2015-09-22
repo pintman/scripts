@@ -21,5 +21,5 @@ NETWORK=$1
 # Use nmap to discover hosts on the network that are pingable.
 nmap -sP $NETWORK > /dev/null
 # print out the arp cache
-arp
+arp | grep :
 
