@@ -16,6 +16,9 @@
 # default: eth0
 INTERFACE=eth0
 
+# Speaking speed. The higher, the faster.
+SPEED=100
+
 # Determine the IP address.
 IP=$(/sbin/ifconfig $INTERFACE | grep "inet " | cut -d : -f 2 | cut -d ' ' -f 1)
 
@@ -24,5 +27,5 @@ test -z "$IP" && exit 1
 
 # -s adjusts the speaking speed 
 # the soundfile will be created first and played afterwards.
-espeak -s 120 -w /tmp/ip.wav "My IP address is $IP"
+espeak -s $SPEED -w /tmp/ip.wav "My IP address is $IP"
 aplay /tmp/ip.wav
