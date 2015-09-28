@@ -28,5 +28,5 @@ test -z "$IP" && exit 1
 
 # -s adjusts the speaking speed 
 # the soundfile will be created first and played afterwards.
-espeak -v de -s $SPEED -w /tmp/ip.wav "My IP address is $IP"
+espeak -v de -s $SPEED -w /tmp/ip.wav "Meine IP Adresse ist $IP"
 aplay /tmp/ip.wav
