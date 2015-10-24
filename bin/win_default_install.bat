@@ -18,6 +18,7 @@ choco install wireshark -y
 choco install foxitreader -y
 choco install totalcommander -y
 choco install visualstudiocommunity2013 -y
+REM choco install unity -y
 
 choco install wget -y
 wget http://releases.0x539.de/gobby/gobby-stable.exe
