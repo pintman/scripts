@@ -20,6 +20,7 @@ INTERFACE=eth0
 SPEED=100
 
 # Determine the IP address.
+# maybe this can accomplished easier with 'hostname -I'
 IP=$(/sbin/ifconfig $INTERFACE | grep "inet " | cut -d : -f 2 | cut -d ' ' -f 1 | sed -e 's/\./ Punkt /g')
 
 # check if we have an IP address and terminate otherwise.
