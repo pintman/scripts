@@ -18,6 +18,7 @@ choco install wireshark -y
 choco install foxitreader -y
 choco install totalcommander -y
 choco install visualstudiocommunity2013 -y
+choco install sharpdevelop -y
 REM choco install unity -y
 REM choco install unity4 -y
 
