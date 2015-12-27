@@ -1,6 +1,6 @@
 # From https://docs.docker.com/engine/examples/running_ssh_service/
 #
-# Docker-Container für den Einsatz in Klassenarbeitn. 
+# Docker-Container für den Einsatz in Klassenarbeiten. 
 #
 # Der Container kann gebaut werden mit
 #
