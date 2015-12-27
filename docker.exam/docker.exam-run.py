@@ -9,12 +9,12 @@ portprefix = "5"
 
 # checking command line arguments
 if len(sys.argv) != 2:
-  print("Give number of containers to be created")
+  print("Give number of containers to be created.")
   exit(1)
 
 anzahl = int(sys.argv[1])
 if anzahl >= 10:
-  print("Maximum of 10 containers allowed")
+  print("Maximum of 9 containers allowed")
   exit(1)
 
 # Starting containers exam0, ..., examN
