@@ -1,0 +1,11 @@
+# Use a .dockerignore file
+#
+# In most cases, it’s best to put each Dockerfile in an empty directory. Then,
+# add to that directory only the files needed for building the Dockerfile. To
+# increase the build’s performance, you can exclude files and directories by
+# adding a .dockerignore file to that directory as well. This file supports
+# exclusion patterns similar to .gitignore files. For information on creating
+# one, see the .dockerignore
+# file. https://docs.docker.com/engine/reference/builder/#dockerignore-file 
+
+
