@@ -29,6 +29,6 @@ for i in range(1, anzahl + 1):
     " -p " + portprefix + ii + "443:443 "
   )
   print(" Starting exam" + ii)
-  os.system("docker run -d --name=exam" + ii + portmap + " exam")
+  os.system("docker run -d -h exam" + ii + " --name=exam" + ii + portmap + " exam")
   os.system("docker port exam" + str(i))
 
