@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# Based on https://hub.docker.com/r/citizenstig/dvwa/
+#
 
 MYSQL_PASS=wohnzimmer
 HTTP_PORT=50080
