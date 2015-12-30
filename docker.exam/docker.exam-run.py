@@ -5,7 +5,7 @@
 import sys
 import os
 
-portprefix = "5"
+basePort = 50000
 
 # checking command line arguments
 if len(sys.argv) != 2:
@@ -13,22 +13,20 @@ if len(sys.argv) != 2:
   exit(1)
 
 anzahl = int(sys.argv[1])
-if anzahl >= 10:
-  print("Maximum of 9 containers allowed")
-  exit(1)
 
 # Starting containers exam0, ..., examN
 print(" Starting " + str(anzahl) + " containers and mapping ports")
 
 for i in range(1, anzahl + 1):
   # ii = format("%02.0f" % i) # format i to exactly two places
-  ii = str(i)
+  ii = basePort + 100 * i
   portmap = (
-    " -p " + portprefix + ii + "022:22"
-    " -p " + portprefix + ii + "080:80"
-    " -p " + portprefix + ii + "443:443 "
+    " -p " + str(ii+22) + ":22"
+    " -p " + str(ii+80) + ":80"
+    " -p " + str(ii+43) + ":443 "
   )
-  print(" Starting exam" + ii)
-  os.system("docker run -d -h exam" + ii + " --name=exam" + ii + portmap + " exam")
-  os.system("docker port exam" + str(i))
+  print(" Starting exam" + str(i))
+  containerName = "exam" + str(i)
+  os.system("docker run -d -h " + containerName + " --name=" + containerName + portmap + " exam")
+  os.system("docker port " + containerName)
 
