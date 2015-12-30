@@ -10,7 +10,10 @@ if [[ -z $* ]]; then
 fi
 
 # fetch ids of all running containers
-IDS=$(docker ps --format "{{.ID}}")
+#
+# --format not present in older versions of docker
+#IDS=$(docker ps --format "{{.ID}}")
+IDS=$(docker ps | cut -d ' ' -f 1 | tail -n +2)
 
 for i in $IDS; 
 do 
