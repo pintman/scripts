@@ -7,11 +7,15 @@ import os
 
 def usage():
     print("Give number of containers to be created.")
+    print(sys.argv[0] + " NUM")
     print("Change base port for containers:")
     print("BASEPORT=50000 " + sys.argv[0]);
+    print("Change name of container")
+    print("CONTAINERNAME=exam " + sys.argv[0])
 
 def main():
   basePort = int(os.getenv("BASEPORT", 50000))
+  containerName = os.getenv("CONTAINERNAME", "exam")
 
   # checking command line arguments
   if len(sys.argv) != 2:
@@ -30,10 +34,10 @@ def main():
       " -p " + str(ii+80) + ":80"
       " -p " + str(ii+43) + ":443 "
     )
-    containerName = "exam" + str(i)
-    print(" => Starting exam" + containerName)
-    os.system("docker run -d -h " + containerName + " --name=" + containerName + portmap + " exam")
-    os.system("docker port " + containerName)
+    cName = containerName + str(i)
+    print(" => Starting " + cName)
+    os.system("docker run -d -h " + cName + " --name=" + cName + portmap + " exam")
+    os.system("docker port " + cName)
 
 
 if __name__ == "__main__":
