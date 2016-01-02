@@ -5,11 +5,13 @@
 import sys
 import os
 
-basePort = 50000
+basePort = int(os.getenv("BASEPORT", 50000))
 
 # checking command line arguments
 if len(sys.argv) != 2:
   print("Give number of containers to be created.")
+  print("Change base port for containers:")
+  print("BASEPORT=50000 " + sys.argv[0]);
   exit(1)
 
 anzahl = int(sys.argv[1])
@@ -28,4 +30,3 @@ for i in range(1, anzahl + 1):
   print(" => Starting exam" + containerName)
   os.system("docker run -d -h " + containerName + " --name=" + containerName + portmap + " exam")
   os.system("docker port " + containerName)
-
