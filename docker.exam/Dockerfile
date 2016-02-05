@@ -40,10 +40,12 @@ RUN echo 'testuser ALL=(ALL:ALL) ALL' >> /etc/sudoers
 # Pakete installieren
 RUN apt-get update && apt-get install -y \
   apache2 \
+  curl \
   libapache2-mod-php5 \
   man \
   nano \
   openssh-server \
+  telnet \
   wget \
   vim \
 && apt-get clean
