@@ -41,6 +41,7 @@ RUN echo 'testuser ALL=(ALL:ALL) ALL' >> /etc/sudoers
 RUN apt-get update && apt-get install -y \
   apache2 \
   curl \
+  htop \
   libapache2-mod-php5 \
   man \
   nano \
@@ -69,6 +70,6 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22 80 443
 
 # Startskript in den Container kopieren und ausführen
-COPY ./docker-entrypoint.sh /
-CMD ["/docker-entrypoint.sh", ""]
+COPY ./docker-entrypoint.sh /sbin
+CMD ["/sbin/docker-entrypoint.sh", ""]
 
