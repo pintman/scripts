@@ -70,6 +70,6 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22 80 443
 
 # Startskript in den Container kopieren und ausführen
-COPY ./docker-entrypoint.sh /sbin
-CMD ["/sbin/docker-entrypoint.sh", ""]
+COPY ./docker-entrypoint.sh /
+CMD ["/docker-entrypoint.sh", ""]
 
