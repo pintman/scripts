@@ -41,6 +41,7 @@ RUN echo 'testuser ALL=(ALL:ALL) ALL' >> /etc/sudoers
 RUN apt-get update && apt-get install -y \
   apache2 \
   curl \
+  dnsutils \
   htop \
   libapache2-mod-php5 \
   man \
