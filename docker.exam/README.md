@@ -5,7 +5,7 @@ Container bauen
 
 Das Image wird mit Hilfe des Skrips docker.exam-build.sh gebaut: 
 
-  ./docker.exam-build.sh
+    ./docker.exam-build.sh
 
 Grundlage für das Image ist das Dockerfile im selben Ordner. Die Datei docker-entrypoint.sh wird in den Container kopiert und ausgeführt. Sie startet Dienste wie ssh oder den Apache-Webserver und wartet anschließend.
 
@@ -14,11 +14,11 @@ Container starten
 
 Eine beliebige Anzahl Container kann mit wie folgt gestartet werden.
 
-   ./docker.exam-run.py ANZAHL
+    ./docker.exam-run.py ANZAHL
    
 Der folgende Befehl startet z.B. 20 Container: exam1, exam2, ..., exam20.
 
-   ./docker.exam-run.py 20
+    ./docker.exam-run.py 20
 
 Die Container sind über den Port 5XX22 per ssh erreichbar. Ein Webserver läuft auf Port 5XX80. Das XX muss durch die Nummer ersetzt werden: 50122 für den ersten, 50222 für zweiten, ... 52022 für den 20. Container.
 
@@ -27,8 +27,8 @@ Programme in allen Containern ausführen
 
 Ein beliebiges Programm kann in allen laufenden Container ausgeführt werden:
 
-  ./docker.exam-exec.sh CMD
+    ./docker.exam-exec.sh CMD
   
 Um etwa alle auf dem jeweiligen Container eingeloggten User ausgeben zu lassen, reicht folgender Befehl:
 
-  ./docker.exam-exec.sh who
+    ./docker.exam-exec.sh who
