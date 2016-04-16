@@ -12,15 +12,15 @@ Grundlage für das Image ist das Dockerfile im selben Ordner. Die Datei docker-e
 Container starten
 =================
 
-Eine beliebige Anzahl Container kann mit wie folgt gestartet werden.
+Eine beliebige Anzahl Container kann wie folgt gestartet werden.
 
     ./docker.exam-run.py ANZAHL
    
-Der folgende Befehl startet z.B. 20 Container: exam1, exam2, ..., exam20.
+Der folgende Befehl startet z.B. 20 Container die nach folgendem Schma benannt werden: exam1, exam2, ..., exam20.
 
     ./docker.exam-run.py 20
 
-Die Container sind über den Port 5XX22 per ssh erreichbar. Ein Webserver läuft auf Port 5XX80. Das XX muss durch die Nummer ersetzt werden: 50122 für den ersten, 50222 für zweiten, ... 52022 für den 20. Container.
+Die Container sind über den Port 5XX22 per ssh erreichbar. Ein Webserver läuft auf Port 5XX80. Das XX muss durch die Nummer des Containers ersetzt werden: 50122 für den ersten, 50222 für zweiten, ... 52022 für den 20. Container.
 
 Programme in allen Containern ausführen
 =======================================
