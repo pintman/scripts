@@ -24,6 +24,8 @@ Der folgende Befehl startet z.B. 20 Container die nach folgendem Schma benannt w
 
 Die Container sind über den Port 5XX22 per ssh erreichbar. Ein Webserver läuft auf Port 5XX80. Das `XX` muss durch die Nummer des Containers ersetzt werden: 50122 für den ersten, 50222 für zweiten, ... 52022 für den 20. Container.
 
+![Docker host mit drei Containern](docker-installation.gif)
+
 Programme in allen Containern ausführen
 =======================================
 
