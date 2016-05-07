@@ -26,6 +26,11 @@ Die Container sind über den Port 5XX22 per ssh erreichbar. Ein Webserver läuft
 
 ![Docker host mit drei Containern](docker-installation.gif)
 
+Konfiguration des Startvorgangs
+-------------------------------
+
+Die Standardports und Bezeichnungen der Container können über Umgebungsvariablen geändert werden. Ein Aufruf von `docker.exam-run.py` ohne Parameter zeigt die möglichen Variablen.
+
 Programme in allen Containern ausführen
 =======================================
 
