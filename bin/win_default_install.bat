@@ -8,6 +8,7 @@ REM Install chocolately.org
 REM Tools
 choco install cygwin cyg-get geany git putty python3 winscp -y
 cyg-get mc
+pip install scapy-python3
 
 REM Applications
 choco install chromium foxitreader notepadplusplus sharpdevelop visualstudiocommunity2013 wireshark -y
