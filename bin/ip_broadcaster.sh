@@ -50,7 +50,12 @@ MSG=":My local IP is $IP"
 #
 
 # check if we have an IP address and terminate otherwise.
-test -z "$IP" && exit 1
+if [[ -z "$IP" ]]
+then
+	echo Konnte keine IP-Adresse ermitteln.
+	exit 1
+fi
+
 
 # send the ip to the irc server via nc
 #
