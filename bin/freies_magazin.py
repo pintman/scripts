@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+#
+# Ein einfaches Skript, das die Ausgaben des Linux-Magazins "freies Magazin"
+# nach einem Stichwort durchsucht. Es werden Titel und Zusammenfassungen der
+# Artikel berücksichtigt.
+# 
 
 import xml.etree.ElementTree as ET
 import urllib.request
