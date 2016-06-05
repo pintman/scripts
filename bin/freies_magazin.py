@@ -45,5 +45,5 @@ if __name__ == "__main__":
     for wort in sys.argv[1:]:
         suchwort += wort + " "
 
-    suche(suchwort)
+    suche(suchwort.strip())
 
