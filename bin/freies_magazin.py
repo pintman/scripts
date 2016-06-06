@@ -4,6 +4,12 @@
 # nach einem Stichwort durchsucht. Es werden Titel und Zusammenfassungen der
 # Artikel berücksichtigt.
 # 
+# Der folgende Beispielaufruf liefert alle Artikel, in den Python thematisiert wird.
+#
+# ./freies_magazin.py Python
+#
+# 
+#
 
 import xml.etree.ElementTree as ET
 import urllib.request
