@@ -1,15 +1,20 @@
 from sopel import module
+#
+# Ein Bot, der von dem IRC-Bot Sopel benutzt werden kann, um die Container zu
+# starten.
+#
 
 @module.commands('docker_exam')
 @module.require_admin("Hier dürfen nur Admins ran.")
 def docker_exam(bot, trigger):
     """
     Erlaubt das Starten und Verwalten von docker-Containern.
-    .docker_exam run 3 - Starte 3 Container
+    .docker_exam run anzahl=3 - Starte 3 Container
     .docker_exam show  - zeige laufende Container
     .docker_exam stop  - stoppt alle Container
     """
     bot.say("(noch nicht fertig)")
+    return
     
     anzahl = 0
     argumente = trigger.group(2)
@@ -25,21 +30,17 @@ def docker_exam(bot, trigger):
     
     if method == "run":
         bot.say("Starte " + str(anzahl) + " Container")
+        # TODO
 
     elif method == "show":
         bot.say("Ich zeige dir die laufenden Container.")
+        # TODO
+
     elif method == "stop":
         bot.say("Stoppe die laufenden Container.")
         bot.say("Hoffentlich haben alle ihren Daten vorher gesichert.")
+        # TODO
+
     else:
         bot.say("Keine Ahnung, was " + method + " bedeuten soll")
     
-    """    
-    print("trigger:", trigger)
-    print("g1", trigger.group(1))
-    print("g2", trigger.group(2))
-    print("g3", trigger.group(3))
-    print("g4", trigger.group(3))
-    """
-
-
