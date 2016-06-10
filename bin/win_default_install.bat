@@ -6,7 +6,7 @@ REM Install chocolately.org
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 
 REM Tools
-choco install cygwin cyg-get geany git putty python3 winscp -y
+choco install cygwin cyg-get geany git putty python3 winscp win32diskimager -y
 cyg-get mc
 REM Install scapy via pip - needs Pcap (via wireshark)
 pip install scapy-python3
