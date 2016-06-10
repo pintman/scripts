@@ -16,11 +16,6 @@ choco install chromium foxitreader notepadplusplus sharpdevelop visualstudiocomm
 REM choco install unity -y
 REM choco install unity4 -y
 
-choco install wget -y
-wget http://releases.0x539.de/gobby/gobby-stable.exe
-start /wait gobby-stable.exe
-del gobby-stable.exe
-
 wget https://www.apachefriends.org/xampp-files/5.6.21/xampp-win32-5.6.21-0-VC11-installer.exe
 start /wait xampp-win32-5.6.15-1-VC11-installer.exe
 del xampp-win32-5.6.15-1-VC11-installer.exe
