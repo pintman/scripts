@@ -8,11 +8,19 @@ REM Install chocolately.org
 REM Tools
 choco install cygwin cyg-get geany git putty python3 winscp win32diskimager -y
 cyg-get mc
-REM Install scapy via pip - needs Pcap (via wireshark)
-pip install scapy-python3
+
+REM upgrade pip (from python)
+python -m pip install --upgrade pip
+
+REM install eapi for the eamodule
+pip install eapi
 
 REM Applications
 choco install chromium foxitreader notepadplusplus sharpdevelop visualstudiocommunity2013 wireshark -y
+
+REM Install scapy via pip - needs Pcap (via wireshark)
+pip install scapy-python3
+
 REM choco install unity -y
 REM choco install unity4 -y
 
