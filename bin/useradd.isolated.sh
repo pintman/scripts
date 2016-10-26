@@ -1,5 +1,9 @@
 #!/bin/bash
 #
+# Das Skript erstellt einen neuen User und entfernt den Zugriff auf 
+# die Home-Verzeichnisse anderer User. Es muss mit sudo oder als root
+# ausgeführt werden.
+#
 # TODO Wird sudo benötigt? Falls ja, könnten für bestimmte Programme 
 # (python, python3, pydoc, ...) Rechte in sudoers eingeräumt werden.
 #
