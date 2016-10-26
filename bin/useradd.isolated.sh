@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER=exam
+USER=exam$RANDOM
 
 if [[ $(whoami) != "root" ]];
 then
@@ -14,9 +14,9 @@ then
 	exit 1;
 fi
 
-echo "User wird angelegt."
+echo "User $USER wird angelegt."
 useradd -m $USER
-echo "Passwort für den neuen User eingeben (und merken)"
+echo "Passwort für den neuen User $USER eingeben (und merken)"
 passwd $USER
 
 
