@@ -2,6 +2,8 @@
 
 USER=exam$RANDOM
 
+# TODO Wird sudo benötigt? Falls ja, könnten für bestimmte Programme (python, python3, pydoc, ...) Recht in sudoers vergeben werden.
+
 if [[ $(whoami) != "root" ]];
 then
 	echo "Bitte mit root-Rechten ausführen - z.B. mit sudo.";
@@ -19,6 +21,6 @@ useradd -m $USER
 echo "Passwort für den neuen User $USER eingeben (und merken)"
 passwd $USER
 
-
+# Verzeichnisse in /home/ nicht mehr zugaenglich machen.
 chmod go-x /home/*
 
