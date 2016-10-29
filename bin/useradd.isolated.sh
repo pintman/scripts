@@ -7,6 +7,7 @@
 # TODO Wird sudo benötigt? Falls ja, könnten für bestimmte Programme 
 # (python, python3, pydoc, ...) Rechte in sudoers eingeräumt werden.
 #
+# TODO Mit ansible lässt sich dieses Skript sicher besser realisieren.
 
 # Username für den neuen User
 USER=exam$RANDOM
