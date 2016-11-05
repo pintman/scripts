@@ -23,4 +23,4 @@ Nach eine Klassenarbeit können Abgagen mit dem Playbook ``abgaben_einsammeln.ym
 
     $ ansible-playbook -i hosts abgaben_einsammeln.yml
     
-Die Abgabe muss auf jedem Rechnet in einer Datei abgelegt werden.
+Die Abgabe muss auf jedem Client in einer speziellen Datei abgelegt werden.
