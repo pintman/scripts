@@ -1,0 +1,19 @@
+---
+- hosts: pis
+  remote_user: pi
+  # als root ausführen
+  become: yes
+
+  vars:
+    # Nutzername für den neuen Nutzer
+    new_user: exam
+    # Dateiname der Datei, die transferiert werden soll
+	datei_tansfer: uhrzeit.txt
+
+  tasks:
+    # Verzeichnisse werden (noch) nicht unterstützt.
+    - name: Abgabe einsammeln
+      fetch: src="/home/{{ new_user  }}/abgabe.tar.gz" dest=fetched
+
+#   - name: Abgabe einsammeln (Version 2)
+#     synchronize: mode=pull src="/home/{{ new_user }}/" dest=synchronized/"{{ inventory hostname }}"/
