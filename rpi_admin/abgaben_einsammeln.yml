@@ -8,12 +8,9 @@
     # Nutzername für den neuen Nutzer
     new_user: exam
     # Dateiname der Datei, die transferiert werden soll
-	datei_tansfer: uhrzeit.txt
+    datei_abgabe: abgabe.tar.gz
 
   tasks:
     # Verzeichnisse werden (noch) nicht unterstützt.
     - name: Abgabe einsammeln
-      fetch: src="/home/{{ new_user  }}/abgabe.tar.gz" dest=fetched
-
-#   - name: Abgabe einsammeln (Version 2)
-#     synchronize: mode=pull src="/home/{{ new_user }}/" dest=synchronized/"{{ inventory hostname }}"/
+      fetch: src="/home/{{ new_user  }}/{{ datei_abgabe }}" dest=fetched

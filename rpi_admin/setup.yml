@@ -1,14 +1,14 @@
 ---
 - hosts: pis
   remote_user: pi
-  # als root ausführen
+  # Befehle als root ausführen
   become: yes
 
   vars:
     # Nutzername für den neuen Nutzer
     new_user: exam
     # Dateiname der Datei, die transferiert werden soll
-	datei_tansfer: uhrzeit.txt
+    datei_tansfer: uhrzeit.txt
 
   tasks:
     - name: nano installieren
