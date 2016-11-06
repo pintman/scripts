@@ -7,9 +7,21 @@ In der Datei ``hosts`` sind alle Rechner eingetragen, die das Inventar der Rechn
 
 ## Vorbereitung
 
-Bevor die Rechner administriert werden können, muss ein OpenSSH-Server auf jedem Client laufen. Dann werden die privaten SSH-Keys auf jeden Client aus der ``hosts``-Datei übertragen - z.B. mit folgendem Aufruf:
+### Hosts ermitteln
 
-    $ ssh-copy-id 192.168.178.25   
+Zunächst müssen die Clients ermitteln und in der Datei ``hosts`` abgelegt werden. Dort können z.B. auch Gruppen für jeden Raum erstellt werden. Mit nmap können die Clients im lokalen Netz schnell ermittelt werden:
+
+    $ nmap -sP -n 192.168.178.0/24
+
+### SSH-Server installieren
+
+Nun muss ein OpenSSH-Server auf jedem Client installiert oder gestartet werden. Raspberry Pi mit Raspbian als OS starten bereits mit einem aufenden SSH-Server.
+
+Dann werden die privaten SSH-Keys auf jeden Client aus der ``hosts``-Datei übertragen - z.B. mit folgendem Aufruf:
+
+    $ ssh-copy-id 192.168.178.21
+    $ ssh-copy-id 192.168.178.22   
+    $ ssh-copy-id 192.168.178.23   
 
 ## Aufruf
 
