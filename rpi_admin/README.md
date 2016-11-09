@@ -4,9 +4,9 @@
 Mit Hilfe von [Ansible](http://www.ansible.com) lässt sich eine Sammlung von
 Raspberry Pi fernsteuern.
 
-In der Datei ``hosts`` sind alle Rechner eingetragen, die das Inventar der
-Rechner repräsentieren. Hier müssen alle Rechner eingetragen werden, die
-verwaltet werden sollen.
+Das Repo enhält eine Datei ``hosts.example``, die als Vorlage dient. Sie kann
+für die eigenen Versuche nach ``hosts`` kopiert und angepasst werden. In ihr
+sind alle Rechner eingetragen, die administriert werden sollen.
 
 ## Vorbereitung
 
