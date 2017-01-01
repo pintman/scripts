@@ -4,6 +4,7 @@
 
 if [[ -z $1 ]] ;
 then
+	echo "Das Skript zeigt den Inhalt eines Etherpads der ZUM an."
 	echo "Gib den Name des Pads an"
 	exit 1
 fi
