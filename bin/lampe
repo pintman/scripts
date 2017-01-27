@@ -8,7 +8,7 @@ b = Bridge("philips-hue")
 
 def main():
     if len(sys.argv) == 1:
-        print("an oder aus angeben")
+        print("Mögliche Parameter: an,  aus, alarm, zahl.")
         return
         
     arg = sys.argv[1]
@@ -26,6 +26,7 @@ def main():
             b.set_light(1, "bri", 255, transitiontime=1)
             time.sleep(1)
             b.set_light(1, "bri", 10, transitiontime=1)
+            time.sleep(1)
     else:
         bri = int(arg)
         print("Setze Helligkeit auf", bri)
