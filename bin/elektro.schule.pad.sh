@@ -9,5 +9,6 @@ then
 	exit 1
 fi
 
+echo https://elektro.schule/pad/p/$1/
 curl https://elektro.schule/pad/p/$1/export/txt
 

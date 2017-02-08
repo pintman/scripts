@@ -9,5 +9,6 @@ then
 	exit 1
 fi
 
+echo https://zumpad.zum.de/p/$1
 curl https://zumpad.zum.de/p/$1/export/txt
 
