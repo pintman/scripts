@@ -19,7 +19,7 @@ class Kontakt:
         self.ausbilder = ausbilder
         self.ausbildermail = mail
 
-
+# open config into list Kontakte
 with open(configfile, "rt") as config:
     rows = list(csv.reader(config, delimiter=";"))[1:]
 
@@ -32,18 +32,19 @@ for (i,row) in enumerate(rows):
         print(i, row[0])
         klassen.append(row[0])
 
+# Ask for class to be used.
 klasse = klassen[int(input("Klasse? "))]
 
 for (i,kont) in enumerate(kontakte):
     if kont.klasse == klasse:
         print(i, kont.name, kont.vorname)
 
+# Ask for  student and dates of absence
 schueler = kontakte[int(input("Schüler? "))]
 schueler_txt = schueler.vorname + " " + schueler.name
-
 daten = input("Daten? ")
 
-
+# create mail, temporary file of content, send mail and remove temp file.
 to=schueler.ausbildermail
 betreff = betreff.format(schuelername=schueler_txt)
 
@@ -56,6 +57,5 @@ mail_cmd = "mutt -b bakera@tbs1.de -s \"{betreff}\" -i {msg_file} {to}".format(
     betreff=betreff,
     to=to,
     msg_file=tmp_file.name)
-print(mail_cmd)
 os.system(mail_cmd)
 os.remove(tmp_file.name)
