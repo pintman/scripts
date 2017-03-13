@@ -4,11 +4,15 @@ import csv
 import os
 import tempfile
 
-configfile=os.environ["HOME"] + "/.ausbilder-mail.csv"
+# read config file with fields:
+# klasse, name, vorname, betrieb, ausbilder, ausbildermail
+configfile = os.environ["HOME"] + "/.ausbilder-mail.csv"
+
+# read template with variables: schuelername, daten, ausbilder
 template_file = os.environ["HOME"] + "/.ausbilder-mail.tmpl"
 template = "".join(open(template_file).readlines())
-betreff = "Versäumter Unterricht {schuelername}"
 
+betreff = "Versäumter Unterricht {schuelername}"
 
 class Kontakt:
     def __init__(self, klasse, name, vorname, betrieb, ausbilder, mail):
@@ -19,8 +23,9 @@ class Kontakt:
         self.ausbilder = ausbilder
         self.ausbildermail = mail
 
-# open config into list Kontakte
+# read config into list Kontakte
 with open(configfile, "rt") as config:
+    # read and remove the first line (header)
     rows = list(csv.reader(config, delimiter=";"))[1:]
 
 kontakte = []
@@ -35,20 +40,21 @@ for row in rows:
 # Ask for class to be used.
 klasse = klassen[int(input("Klasse? "))]
 
-for (i,kont) in enumerate(kontakte):
+for (i, kont) in enumerate(kontakte):
     if kont.klasse == klasse:
         print(i, kont.name, kont.vorname, "(" + kont.ausbilder + ")")
 
-# Ask for  student and dates of absence
+# Ask for student and dates of absence
 schueler = kontakte[int(input("Schüler? "))]
 schueler_txt = schueler.vorname + " " + schueler.name
-daten = input("Daten? ")
+daten = input("Fehltage? ")
 
 # create mail, temporary file of content, send mail and remove temp file.
-to=schueler.ausbildermail
+to = schueler.ausbildermail
 betreff = betreff.format(schuelername=schueler_txt)
 
-content = template.format(schuelername=schueler_txt, daten=daten, ausbilder=schueler.ausbilder)
+content = template.format(
+    schuelername=schueler_txt, daten=daten, ausbilder=schueler.ausbilder)
 tmp_file = tempfile.NamedTemporaryFile(mode="wt", delete=False)
 tmp_file.write(content)
 tmp_file.close()
