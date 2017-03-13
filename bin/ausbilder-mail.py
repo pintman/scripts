@@ -25,11 +25,11 @@ with open(configfile, "rt") as config:
 
 kontakte = []
 klassen = []
-for (i,row) in enumerate(rows):
+for row in rows:
     kontakte.append(Kontakt(*row))
 
     if row[0] not in klassen:
-        print(i, row[0])
+        print(len(klassen), row[0])
         klassen.append(row[0])
 
 # Ask for class to be used.
