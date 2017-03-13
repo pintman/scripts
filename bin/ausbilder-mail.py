@@ -37,7 +37,7 @@ klasse = klassen[int(input("Klasse? "))]
 
 for (i,kont) in enumerate(kontakte):
     if kont.klasse == klasse:
-        print(i, kont.name, kont.vorname)
+        print(i, kont.name, kont.vorname, "(" + kont.ausbilder + ")")
 
 # Ask for  student and dates of absence
 schueler = kontakte[int(input("Schüler? "))]
