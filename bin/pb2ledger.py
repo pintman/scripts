@@ -21,7 +21,7 @@ payeecol = 5
 notecol = 3
 amountcol = 6
 # account to book against
-account="PB"
+account="Bestand:PB"
 
 # template for the output
 template = """{date} * {payee}
