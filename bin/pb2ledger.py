@@ -6,14 +6,20 @@ ledgers (https://ledger-cli.org) file format.
 import csv
 import sys
 
+# some configurations
+# encoding of the import file
 encoding = "ISO8859-15"
+# filename to be use for import
 file = sys.argv[1]
+# columns for date, payee, note and amount information
 datecol = 1
 payeecol = 5
 notecol = 3
 amountcol = 6
+# account to book against
 account="PB"
 
+# template for the output
 template = """{date} * {payee}
     ; {note}
     ; imported from line
