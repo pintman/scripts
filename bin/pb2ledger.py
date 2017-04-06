@@ -5,12 +5,16 @@ ledgers (https://ledger-cli.org) file format.
 """
 import csv
 import sys
+import configparser
+import os
 
 # some configurations
 # encoding of the import file
 encoding = "ISO8859-15"
 # filename to be use for import
 file = sys.argv[1]
+# config file for mappings
+configfile = os.environ["HOME"] + "/.pb2ledgerrc"
 # columns for date, payee, note and amount information
 datecol = 1
 payeecol = 5
@@ -25,8 +29,12 @@ template = """{date} * {payee}
     ; imported from line
     ; {orig}
     {account}      {amount}€
-    Imported:Unknown
+    {account2}
 """
+
+
+config = configparser.ConfigParser()
+config.read(configfile)
 
 def uptospace(string):
     return string[0:string.find(" ")]
@@ -42,6 +50,13 @@ def date_de_to_iso(date):
 
     return year + "-" + mon + "-" + day
 
+def account_for_payee(payee):
+    key = "payee2account"
+    if key in config and payee in config[key]:
+        return config[key][payee]
+    else:
+        return "Imported:Unknown"
+    
 def main():
     #print("opening", file)
     with open(file, encoding=encoding) as f:
@@ -53,6 +68,7 @@ def main():
                 note=r[3],
                 orig=" ".join(r),
                 account="PB",
+                account2=account_for_payee(r[payeecol]),
                 amount=uptospace(r[amountcol])))
                 
             
