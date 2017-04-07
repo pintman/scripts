@@ -22,6 +22,7 @@ notecol = 3
 amountcol = 6
 # account to book against
 account="Bestand:PB"
+account_unknown="Ausgaben:Unbekannt"
 
 # template for the output
 template = """{date} * {payee}
@@ -75,7 +76,7 @@ def account_for_payee(payee):
         else:
             return config[key][payee]
     else:
-        return "Imported:Unknown"
+        return account_unknown
     
 def main():
     with open(file, encoding=encoding) as f:
