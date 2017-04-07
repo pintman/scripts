@@ -51,14 +51,33 @@ def date_de_to_iso(date):
     return year + "-" + mon + "-" + day
 
 def account_for_payee(payee):
+    """Check if there is an account defined for this payee.
+    The format ist as follows:
+    KARSTADT = Ausgaben:Haushalt
+
+    Multiple account can be defined for payment with known amounts
+    MIETER = 700€@Ausgaben:Miete 250€@Ausgaben:Nebenkosten
+    """ 
     key = "payee2account"
     if key in config and payee in config[key]:
-        return config[key][payee]
+        acc = config[key][payee]
+        if " " in acc:
+            # there are multiple account defined
+            # split and add them all
+            accs = acc.split(" ")
+            res = ""
+            for a in accs:
+                if "@" in a:
+                    am,account = a.split("@")
+                    res += account +"  " + am + "\n    "
+            return res
+        
+        else:
+            return config[key][payee]
     else:
         return "Imported:Unknown"
     
 def main():
-    #print("opening", file)
     with open(file, encoding=encoding) as f:
         rows = csv.reader(f, delimiter=";")
         for r in rows:
