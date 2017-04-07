@@ -22,7 +22,7 @@ notecol = 3
 amountcol = 6
 # account to book against
 account="Bestand:PB"
-account_unknown="Ausgaben:Unbekannt"
+account_unknown="Ausgaben:Unknown"
 
 # template for the output
 template = """{date} * {payee}
