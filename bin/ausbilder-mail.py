@@ -33,6 +33,7 @@ klassen = []
 for row in rows:
     kontakte.append(Kontakt(*row))
 
+    # output name of a class the first time we see them
     if row[0] not in klassen:
         print(len(klassen), row[0])
         klassen.append(row[0])
@@ -40,6 +41,7 @@ for row in rows:
 # Ask for class to be used.
 klasse = klassen[int(input("Klasse? "))]
 
+# Output of students of the chosen class
 for (i, kont) in enumerate(kontakte):
     if kont.klasse == klasse:
         print(i, kont.name, kont.vorname, "(" + kont.ausbilder + ")")
