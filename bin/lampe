@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from phue import Bridge
+from phue import Bridge # pip install phue
 import sys
 import time
 
