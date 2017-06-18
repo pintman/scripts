@@ -24,8 +24,8 @@ pip install scapy-python3
 REM choco install unity -y
 REM choco install unity4 -y
 
-wget https://www.apachefriends.org/xampp-files/5.6.21/xampp-win32-5.6.21-0-VC11-installer.exe
-start /wait xampp-win32-5.6.15-1-VC11-installer.exe
+wget https://www.apachefriends.org/xampp-files/5.6.30/xampp-win32-5.6.30-1-VC11-installer.exe
+start /wait xampp-win32-5.6.30-1-VC11-installer.exe
 del xampp-win32-5.6.15-1-VC11-installer.exe
 
 pause
