@@ -16,7 +16,7 @@ REM install eapi for the eamodule
 pip install eapi
 
 REM Applications
-choco install chromium foxitreader notepadplusplus sharpdevelop tightvnc visualstudiocommunity2013 wireshark -y
+choco install 7zip foxitreader notepadplusplus tightvnc wireshark -y
 
 REM Install scapy via pip - needs Pcap (via wireshark)
 pip install scapy-python3
