@@ -4,16 +4,6 @@ import csv
 import os
 import tempfile
 
-# read config file with fields:
-# klasse, name, vorname, betrieb, ausbilder, ausbildermail
-configfile = os.environ["HOME"] + "/.ausbilder-mail.csv"
-
-# read template with variables: schuelername, daten, ausbilder
-template_file = os.environ["HOME"] + "/.ausbilder-mail.tmpl"
-template = "".join(open(template_file).readlines())
-
-betreff = "Versäumter Unterricht {schuelername}"
-
 
 class Kontakt:
     def __init__(self, klasse, name, vorname, betrieb, ausbilder, mail):
@@ -26,6 +16,15 @@ class Kontakt:
 
 
 def main():
+    # read config file with fields:
+    # klasse, name, vorname, betrieb, ausbilder, ausbildermail
+    configfile = os.environ["HOME"] + "/.ausbilder-mail.csv"
+
+    # read template with variables: schuelername, daten, ausbilder
+    template_file = os.environ["HOME"] + "/.ausbilder-mail.tmpl"
+    template = "".join(open(template_file).readlines())
+
+    betreff = "Versäumter Unterricht {schuelername}"
     # read config into list Kontakte
     with open(configfile, "rt") as config:
         # read and remove the first line (header)
