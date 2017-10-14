@@ -14,6 +14,7 @@ template = "".join(open(template_file).readlines())
 
 betreff = "Versäumter Unterricht {schuelername}"
 
+
 class Kontakt:
     def __init__(self, klasse, name, vorname, betrieb, ausbilder, mail):
         self.klasse = klasse
@@ -23,47 +24,53 @@ class Kontakt:
         self.ausbilder = ausbilder
         self.ausbildermail = mail
 
-# read config into list Kontakte
-with open(configfile, "rt") as config:
-    # read and remove the first line (header)
-    rows = list(csv.reader(config, delimiter=";"))[1:]
 
-kontakte = []
-klassen = []
-for row in rows:
-    kontakte.append(Kontakt(*row))
+def main():
+    # read config into list Kontakte
+    with open(configfile, "rt") as config:
+        # read and remove the first line (header)
+        rows = list(csv.reader(config, delimiter=";"))[1:]
 
-    # output name of a class the first time we see them
-    if row[0] not in klassen:
-        print(len(klassen), row[0])
-        klassen.append(row[0])
+    kontakte = []
+    klassen = []
+    for row in rows:
+        kontakte.append(Kontakt(*row))
 
-# Ask for class to be used.
-klasse = klassen[int(input("Klasse? "))]
+        # output name of a class the first time we see them
+        if row[0] not in klassen:
+            print(len(klassen), row[0])
+            klassen.append(row[0])
 
-# Output of students of the chosen class
-for (i, kont) in enumerate(kontakte):
-    if kont.klasse == klasse:
-        print(i, kont.name, kont.vorname, "(" + kont.ausbilder + ")")
+    # Ask for class to be used.
+    klasse = klassen[int(input("Klasse? "))]
 
-# Ask for student and dates of absence
-schueler = kontakte[int(input("Schüler? "))]
-schueler_txt = schueler.vorname + " " + schueler.name
-daten = input("Fehltage? ")
+    # Output of students of the chosen class
+    for (i, kont) in enumerate(kontakte):
+        if kont.klasse == klasse:
+            print(i, kont.name, kont.vorname, "(" + kont.ausbilder + ")")
 
-# create mail, temporary file of content, send mail and remove temp file.
-to = schueler.ausbildermail
-betreff = betreff.format(schuelername=schueler_txt)
+    # Ask for student and dates of absence
+    schueler = kontakte[int(input("Schüler? "))]
+    schueler_txt = schueler.vorname + " " + schueler.name
+    daten = input("Fehltage? ")
 
-content = template.format(
-    schuelername=schueler_txt, daten=daten, ausbilder=schueler.ausbilder)
-tmp_file = tempfile.NamedTemporaryFile(mode="wt", delete=False)
-tmp_file.write(content)
-tmp_file.close()
+    # create mail, temporary file of content, send mail and remove temp file.
+    to = schueler.ausbildermail
+    betreff = betreff.format(schuelername=schueler_txt)
 
-mail_cmd = "mutt -b bakera@tbs1.de -s \"{betreff}\" -i {msg_file} {to}".format(
-    betreff=betreff,
-    to=to,
-    msg_file=tmp_file.name)
-os.system(mail_cmd)
-os.remove(tmp_file.name)
+    content = template.format(
+        schuelername=schueler_txt, daten=daten, ausbilder=schueler.ausbilder)
+    tmp_file = tempfile.NamedTemporaryFile(mode="wt", delete=False)
+    tmp_file.write(content)
+    tmp_file.close()
+
+    mail_cmd = "mutt -b bakera@tbs1.de -s \"{betreff}\" -i {msg_file} {to}".format(
+        betreff=betreff,
+        to=to,
+        msg_file=tmp_file.name)
+    os.system(mail_cmd)
+    os.remove(tmp_file.name)
+
+
+if __name__ == "__main__":
+    main()
