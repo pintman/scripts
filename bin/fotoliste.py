@@ -38,7 +38,6 @@ def create_table_rows(images_files, entries_per_row=4):
             continue
 
         name = image.replace(".jpg", "").replace(" ", ", ", 1)
-        # print(image, "->", name)
         html += ROW_TEMPLATE.format(src=image, name=name)
         entries += 1
 
@@ -46,7 +45,6 @@ def create_table_rows(images_files, entries_per_row=4):
             html += "</tr>\n<tr>"
 
     html += "</tr>"
-
     return html
 
 
@@ -56,11 +54,11 @@ def main():
         return
 
     folder = os.path.normpath(sys.argv[1])
-    title = os.path.basename(folder)
     print("using pictures from", folder)
+    title = os.path.basename(folder)
     tab_rows = create_table_rows(os.listdir(folder))
     html = HTML_TEMPLATE.format(title=title, table_rows=tab_rows)
-    print("Creating", OUTFILE, "in", folder, "title is", title)
+    print("Creating", OUTFILE, "in", folder, "with title", title)
     with open(os.path.join(folder, OUTFILE), "wt") as outfile:
         outfile.write(html)
 
