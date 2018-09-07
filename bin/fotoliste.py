@@ -13,6 +13,7 @@ HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Fotoliste {title}</title>
 </head>
 <body>
