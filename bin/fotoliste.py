@@ -37,13 +37,13 @@ def create_table_rows(images_files, entries_per_row=4):
             print("ignoring", image)
             continue
 
-        if entries % entries_per_row == 0:
-            html += "</tr>\n<tr>"
-
         name = image.replace(".jpg", "").replace(" ", ", ", 1)
         # print(image, "->", name)
         html += ROW_TEMPLATE.format(src=image, name=name)
         entries += 1
+
+        if entries % entries_per_row == 0:
+            html += "</tr>\n<tr>"
 
     html += "</tr>"
 
