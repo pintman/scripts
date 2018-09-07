@@ -11,6 +11,7 @@ HTML_TEMPLATE = """
   <title>Fotoliste</title>
 </head>
 <body>
+  <h1>{title}</h1>
   <table>
   {table_rows}
   </table>
@@ -34,7 +35,8 @@ def create_table_rows(images_files, entries_per_row=4):
         if entries % entries_per_row == 0:
             html += "</tr>\n<tr>"
 
-        name = image.replace(".jpg", "").replace(" ", ", ")
+        name = image.replace(".jpg", "").replace(" ", ", ", 1)
+        # print(image, "->", name)
         html += ROW_TEMPLATE.format(src=image, name=name)
         entries += 1
 
@@ -51,8 +53,8 @@ def main():
     folder = sys.argv[1]
     print("using pictures from", folder)
     tab_rows = create_table_rows(os.listdir(folder))
-    html = HTML_TEMPLATE.format(table_rows=tab_rows)
-    print("Creating", OUTFILE, "in", folder)
+    html = HTML_TEMPLATE.format(title=folder, table_rows=tab_rows)
+    print("Creating", OUTFILE, "in", folder, "title is", folder)
     with open(folder + "/" + OUTFILE, "wt") as outfile:
         outfile.write(html)
 
