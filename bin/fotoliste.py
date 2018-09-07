@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+#
+# A helper script for creating an array of images in an HTML file from a list
+# of images inside a folder. Call the script with the image folder as the
+# only argument. The folder name will be used as title.
+
 import sys
 import os
 
