@@ -26,7 +26,8 @@ HTML_TEMPLATE = """
 """
 
 ROW_TEMPLATE = """
-    <td align="center"> <img width="100%" src="{src}"><br> {name} </td>"""
+    <td align="center" valign="bottom"> <img width="100%" src="{src}"><br>
+    {name} </td>"""
 
 
 def create_table_rows(images_files, entries_per_row=4):
