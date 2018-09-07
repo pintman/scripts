@@ -13,7 +13,7 @@ HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fotoliste</title>
+  <title>Fotoliste {title}</title>
 </head>
 <body>
   <h1>{title}</h1>
@@ -58,8 +58,8 @@ def main():
     folder = sys.argv[1]
     print("using pictures from", folder)
     tab_rows = create_table_rows(os.listdir(folder))
-    html = HTML_TEMPLATE.format(title=folder, table_rows=tab_rows)
-    print("Creating", OUTFILE, "in", folder, "title is", folder)
+    html = HTML_TEMPLATE.format(title=title, table_rows=tab_rows)
+    print("Creating", OUTFILE, "in", folder, "title is", title)
     with open(folder + "/" + OUTFILE, "wt") as outfile:
         outfile.write(html)
 
