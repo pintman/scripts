@@ -56,6 +56,7 @@ def main():
         return
 
     folder = sys.argv[1]
+    title = os.path.dirname(folder)
     print("using pictures from", folder)
     tab_rows = create_table_rows(os.listdir(folder))
     html = HTML_TEMPLATE.format(title=title, table_rows=tab_rows)
