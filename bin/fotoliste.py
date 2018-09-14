@@ -30,7 +30,7 @@ ROW_TEMPLATE = """
     {name} </td>"""
 
 
-def create_table_rows(images_files, entries_per_row=4):
+def create_table_rows(images_files, entries_per_row=5):
     entries = 0
     html = "<tr>"
 
