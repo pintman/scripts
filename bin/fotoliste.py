@@ -15,6 +15,7 @@ HTML_TEMPLATE = """
 <head>
   <meta charset="UTF-8">
   <title>Fotoliste {title}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
 </head>
 <body>
   <h1>{title}</h1>
