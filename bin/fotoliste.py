@@ -20,7 +20,9 @@ HTML_TEMPLATE = """
 <body>
   <h1>{title}</h1>
   <table>
+  <tbody>
   {table_rows}
+  <tbody>
   </table>
 </body>
 </html>
