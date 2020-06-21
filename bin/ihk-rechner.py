@@ -11,7 +11,7 @@ def main():
     print("Note\tab")
     print("----\t--")
 
-    for (note, faktor) in [(1, 0.92),
+    for note, faktor in [(1, 0.92),
                            (2, 0.81),
                            (3, 0.67),
                            (4, .5),
