@@ -39,11 +39,12 @@ def create_table_rows(images_files, entries_per_row=5):
     html = "<tr>"
 
     for image in images_files:
-        if not image.endswith(".jpg"):
+        if not (image.endswith(".jpg") or image.endswith('.png')):
             print("ignoring", image)
             continue
 
-        name = image.replace(".jpg", "").replace(" ", ", ", 1)
+        _file, suffix = os.path.splitext(image)
+        name = image.replace("."+suffix, "").replace(" ", ", ", 1)
         html += ROW_TEMPLATE.format(src=image, name=name)
         entries += 1
 
