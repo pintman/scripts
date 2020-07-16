@@ -61,6 +61,9 @@ def delete(name):
 @click.argument('message', nargs=-1)
 def send(name, message):
     'Send a message to a named channel.'
+    if name not in tokens:
+        print('Unknown channel name:', name)
+        return
     chan_url = tokens[name]
 
     card = pymsteams.connectorcard(chan_url)
