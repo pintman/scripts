@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 
 import pymsteams
-import datetime
-import sys
 import os
 import json
+import click
 
 tokens = {}
 homedir = os.environ['HOME']
-CONFIG_FILE = homedir + os.sep + '.local' + os.sep + 'etc' + os.sep + 'msteams.conf'
+CONFIG_FILE = homedir + '/.local/etc/msteams.conf'
 
 def save_config():
     with open(CONFIG_FILE, 'w') as f:
@@ -23,40 +22,46 @@ def load_config():
         save_config()
         return load_config()
 
-def add(args):
-    if len(args) != 2: 
-        print("need name and url of channel to be added")
-        return
+@click.group()
+def cli():
+    '''
+    CLI for sending messages to channels in MS-Teams. Each channel must
+    be configured as incoming webhook and must be added to the database.
 
-    name, url = args
-    print('name url', name, url)
+    By default all configuration is stored in ~/.local/etc/msteams.conf.
+    '''
+
+@cli.command()
+@click.argument('name')
+@click.argument('url')
+def add(name, url):
+    'Add a token to the database.'
     tokens[name] = url
     save_config()
 
+@cli.command()
 def list():
-    print('registered tokens:')
-    print('\n'.join(tokens.keys()))
+    'List registered tokens.'
+    print('Registered token names:', ','.join(tokens.keys()))
 
-def delete(args):
-    if len(args) != 1:
-        print('need name of url')
-        return
-
-    print('deleting', args[0])
-    del tokens[args[0]]
+@cli.command()
+@click.argument('name')
+def delete(name):
+    'Delete a given token.'
+    print('deleting', name)
+    del tokens[name]
     save_config()
 
-def send(args):
-    if len(args) == 0:
-        print('need channel name and message')
-        return
-
-    chan_url = tokens[args[0]]
-    msg = ' '.join(args[1:])
+@cli.command()
+@click.argument('name')
+@click.argument('message', nargs=-1)
+def send(name, message):
+    'Send a message to a named channel.'
+    chan_url = tokens[name]
 
     card = pymsteams.connectorcard(chan_url)
     #card.title(f'Titel {datetime.datetime.now()}')
-    card.text(msg)
+    card.text(' '.join(message))
     #card.printme()
     card.send()
 
@@ -64,21 +69,7 @@ def main():
     global tokens
     tokens = load_config()
 
-    args = sys.argv[1:]
-    if len(sys.argv) < 2:
-        print('need command: add, del, list, send')
-        return
-
-    if args[0] == 'add':
-        add(args[1:])
-    elif args[0] == 'del':
-        delete(args[1:])
-    elif args[0] == 'list':
-        list()
-    elif args[0] == 'send':
-        send(args[1:])
-    else:
-        print('command unknown:', args[0])
+    cli()
 
 if __name__ == '__main__':
     main()
