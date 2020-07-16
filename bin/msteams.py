@@ -8,7 +8,8 @@ import click
 
 tokens = {}
 homedir = os.environ['HOME']
-CONFIG_FILE = homedir + '/.local/etc/msteams.conf'
+config_dir = homedir + '/.local/etc'
+CONFIG_FILE = config_dir + '/msteams.conf'
 
 def save_config():
     with open(CONFIG_FILE, 'w') as f:
@@ -21,6 +22,8 @@ def load_config():
 
     else:
         # no config file found - creating new (empty) one.
+        if not os.path.isdir(config_dir):
+            os.mkdir(config_dir)
         save_config()
         # read/write by owner only
         os.chmod(CONFIG_FILE, stat.S_IREAD | stat.S_IWRITE)
