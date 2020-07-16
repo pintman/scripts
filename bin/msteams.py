@@ -2,6 +2,7 @@
 
 import pymsteams
 import os
+import stat
 import json
 import click
 
@@ -19,7 +20,10 @@ def load_config():
             return json.load(f)
 
     else:
+        # no config file found - creating new (empty) one.
         save_config()
+        # read/write by owner only
+        os.chmod(CONFIG_FILE, stat.S_IREAD | stat.S_IWRITE)
         return load_config()
 
 @click.group()
