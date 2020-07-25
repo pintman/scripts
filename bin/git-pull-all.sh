@@ -1,3 +1,8 @@
 #!/bin/sh
 
-find $* -maxdepth 0 -type d -print -exec git -C {} pull \;
+for gitdir in */.git; 
+do
+  echo "-- $gitdir"
+  git -C $gitdir/.. pull
+done
+
