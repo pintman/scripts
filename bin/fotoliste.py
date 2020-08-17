@@ -43,8 +43,7 @@ def create_table_rows(images_files, entries_per_row=5):
             print("ignoring", image)
             continue
 
-        _file, suffix = os.path.splitext(image)
-        name = image.replace("."+suffix, "").replace(" ", ", ", 1)
+        name, _suffix = os.path.splitext(image)
         html += ROW_TEMPLATE.format(src=image, name=name)
         entries += 1
 
