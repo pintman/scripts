@@ -30,7 +30,7 @@ HTML_TEMPLATE = """
 """
 
 ROW_TEMPLATE = """
-    <td align="center" valign="bottom"> <img width="100%" src="{src}"><br>
+    <td valign="bottom"> <img width="100%" src="{src}"><br>
     {name} </td>"""
 
 
