@@ -55,13 +55,13 @@ def create_table_rows(images_files, entries_per_row=5):
 
 
 def main():
-    if len(sys.argv) != 2:
-        print("Need one argument: folder with images")
+    if len(sys.argv) != 3:
+        print("Need two arguments: name of class and folder with images")
         return
 
-    folder = os.path.normpath(sys.argv[1])
+    folder = os.path.normpath(sys.argv[2])
     print("using pictures from", folder)
-    title = os.path.basename(folder)
+    title = sys.argv[1]
     tab_rows = create_table_rows(sorted(os.listdir(folder)))
     html = HTML_TEMPLATE.format(title=title, table_rows=tab_rows)
     print("Creating", OUTFILE, "in", folder, "with title", title)
