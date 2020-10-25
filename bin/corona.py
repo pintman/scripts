@@ -9,6 +9,7 @@ fieldname_7tage_inzidenz_davor = 'FaellePro100kLetzte7TageDavor'
 fieldname_landkreis = 'Landkreis'
 fieldname_meldung = 'MeldeDay'
 staedte = ['SK Bochum', 'SK Dortmund', 'SK Herne', 'SK Essen']
+steps = '▁▂▃▄▅▆▇█'
 
 lines = urllib.request.urlopen(datasource).readlines()
 
@@ -31,4 +32,8 @@ for line in lines[1:]:
 print('Stadt    \t Infizierte/100kEinw. in 7 Tagen (davor)\n')
 for stadt in staedte:
     inzidenz, inzidenz_davor = city_incidence[stadt]
-    print(f'{stadt}    \t {round(inzidenz, 1)}\t({round(inzidenz_davor, 1)})')
+    inzidenz_r, inzidenz_davor_r = round(inzidenz, 1), round(inzidenz_davor, 1)
+    symbol = int(inzidenz/10) * '*'
+    #symbol = steps[int(inzidenz/10)]
+    print(
+        f'{stadt}    \t {inzidenz_r}\t({inzidenz_davor_r})\t{symbol}')
