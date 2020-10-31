@@ -29,11 +29,12 @@ for line in lines[1:]:
     city_incidence[landkreis] = float(siebenT_inzidenz), float(siebenT_inzidenz_davor)
 
 # output configured places
-print('Stadt    \t Infizierte/100kEinw. in 7 Tagen (davor)\n')
+max_width = 14
+print('Stadt         \tInfizierte/100kEinw. in 7 Tagen (davor)\n')
 for stadt in staedte:
     inzidenz, inzidenz_davor = city_incidence[stadt]
     inzidenz_r, inzidenz_davor_r = round(inzidenz, 1), round(inzidenz_davor, 1)
     symbol = int(inzidenz/10) * '*'
     #symbol = steps[int(inzidenz/10)]
     print(
-        f'{stadt}    \t {inzidenz_r}\t({inzidenz_davor_r})\t{symbol}')
+        f'{stadt[:max_width]}\t{inzidenz_r} ({inzidenz_davor_r})\t{symbol}')
