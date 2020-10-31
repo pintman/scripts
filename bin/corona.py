@@ -8,7 +8,7 @@ fieldname_7tage_inzidenz = 'FaellePro100kLetzte7Tage'
 fieldname_7tage_inzidenz_davor = 'FaellePro100kLetzte7TageDavor'
 fieldname_landkreis = 'Landkreis'
 fieldname_meldung = 'MeldeDay'
-staedte = ['SK Bochum', 'SK Dortmund', 'SK Herne', 'SK Essen']
+staedte = ['SK Bochum', 'SK Dortmund', 'SK Herne', 'SK Essen', 'LK Recklinghausen']
 steps = '▁▂▃▄▅▆▇█'
 
 lines = urllib.request.urlopen(datasource).readlines()
