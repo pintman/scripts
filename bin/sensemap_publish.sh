@@ -19,7 +19,7 @@ echo sending value $1 to sensemap endpoint
 api=https://api.opensensemap.org/boxes/$senseBoxId/$sensorId
 
 if [ -z $authToken ]; then
-    echo authToken missing - sending without
+    echo env var authToken missing - sending without
     curlopts="-H Content-Type:application/json"
 else
     curlopts="-H Content-Type:application/json -H Authorization:$authToken"
