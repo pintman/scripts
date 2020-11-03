@@ -5,6 +5,8 @@ import json
 
 API = 'https://api.e-bike-garage.de/api/v1'
 STATUS_FREE = 'free'
+STATUS_TAKEN = 'taken'
+STATUS_RESERVED = 'reserved'
 
 def get_containers():
     ''' Fetch list of containers:
@@ -40,14 +42,17 @@ def get_boxes(container_id):
     return json.load(urlopen(url))
 
 def main():
-    print('Freie Boxen in E-Bike-Garagen in Bochum:')
+    print('Status der Boxen in E-Bike-Garagen in Bochum (frei/reserviert/belegt)')
     for container in get_containers():
-        #print(container)
-
         boxes = get_boxes(container['id'])
-        free_boxes = [b for b in boxes if b['status']==STATUS_FREE]
+        free, reserved, taken = 0,0,0
+        for box in boxes:
+            status = box['status']
+            if status == STATUS_FREE: free += 1
+            elif status == STATUS_RESERVED: reserved += 1
+            elif status == STATUS_TAKEN: taken += 1
 
-        print(f'{len(free_boxes)}/{len(boxes)}: {container["location"]}')
+        print(f'{free}/{reserved}/{taken}: {container["location"]}')
 
 if __name__ == '__main__':
     main()
