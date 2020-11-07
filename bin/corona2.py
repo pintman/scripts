@@ -30,7 +30,7 @@ for city in city_ids:
 
 # output configured places
 max_width = 10
-print('Stadt         \tInfizierte/100kEinw. in 7 Tagen (davor)\n')
+print('Stadt         \tInfizierte/100kEinw. in 7 Tagen\n')
 for stadt in city_ids:
     inzidenz = city_incidence[stadt]
     inzidenz_r = round(inzidenz, 1)
