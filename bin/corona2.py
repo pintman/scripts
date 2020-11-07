@@ -26,7 +26,8 @@ for city in city_ids:
     lines = urllib.request.urlopen(datasource.format(stadt=cid)).readlines()
     headline = str(lines[0]).split(delimiter)
     index_7tage_inzidenz = headline.index(fieldname_7tage_inzidenz)
-    city_incidence[city] = float(str(lines[-1], encoding='UTF8').split(delimiter)[index_7tage_inzidenz])
+    city_incidence[city] = float(
+        str(lines[-1], encoding='UTF8').split(delimiter)[index_7tage_inzidenz])
 
 # output configured places
 max_width = 10
