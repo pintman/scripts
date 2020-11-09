@@ -31,9 +31,7 @@ stunden_masch = [
     ]
 
 def print_stunde(stunden):
-    #now = datetime.datetime.now()
-    now = datetime.time(9,0)
-    #now = datetime.datetime.now().time()
+    now = datetime.datetime.now().time()
 
     for i, (stunden_beginn, stunde) in enumerate(stunden):
 
