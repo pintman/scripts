@@ -19,13 +19,13 @@ stunden_allgemein = [
 stunden_masch = [
     (datetime.time(9, 0), 1),
     (datetime.time(8, 45), 2),
-    (datetime.time(9, 30),   'Pause'),
+    (datetime.time(9, 30),  'Pause'),
     (datetime.time(9, 45), 3),
     (datetime.time(10, 30), 4),
     (datetime.time(11, 15), 'Pause'),
     (datetime.time(11, 30), 5),
     (datetime.time(12, 15), 6),
-    (datetime.time(13, 0), 'Pause'),
+    (datetime.time(13, 0),  'Pause'),
     (datetime.time(13, 15), 7),
     (datetime.time(14, 0), 8)
     ]
