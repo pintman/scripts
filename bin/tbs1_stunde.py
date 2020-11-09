@@ -2,6 +2,19 @@
 
 import datetime
 
+stunden_abend = [
+    (datetime.time(15, 0), 9),
+    (datetime.time(15, 45), 10),
+    (datetime.time(16, 30),   'Pause'),
+    (datetime.time(17, 0), 11),
+    # Beginn Abendunterricht
+    (datetime.time(17, 45), 12),
+    (datetime.time(18, 30), 13),
+    (datetime.time(19, 15),   'Pause'),
+    (datetime.time(19, 30), 14),
+    (datetime.time(20, 15), 15)
+]
+
 stunden_allgemein = [
     (datetime.time(7, 30), 1),
     (datetime.time(8, 15), 2),
@@ -15,6 +28,7 @@ stunden_allgemein = [
     (datetime.time(12, 45), 7),
     (datetime.time(13, 30), 8)
     ]
+stunden_allgemein.extend(stunden_abend)
 
 stunden_masch = [
     (datetime.time(9, 0), 1),
@@ -29,6 +43,7 @@ stunden_masch = [
     (datetime.time(13, 15), 7),
     (datetime.time(14, 0), 8)
     ]
+stunden_masch.extend(stunden_abend)
 
 def print_stunde(stunden):
     now = datetime.datetime.now().time()
