@@ -54,7 +54,8 @@ def print_stunde(stunden):
             next_stundenbeginn, _ = stunden[i + 1]
 
             if stunden_beginn <= now < next_stundenbeginn:
-                print(stunde, f'bis {next_stundenbeginn.hour}:{next_stundenbeginn.minute}')
+                std = str(next_stundenbeginn.minute).zfill(2)
+                print(stunde, f'bis {next_stundenbeginn.hour}:{std}')
                 return
 
         else: # keine nächste Stunde
