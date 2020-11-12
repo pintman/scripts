@@ -31,7 +31,7 @@ stunden_allgemein = [
 stunden_allgemein.extend(stunden_abend)
 
 stunden_masch = [
-    (datetime.time(9, 0), 1),
+    (datetime.time(8, 0), 1),
     (datetime.time(8, 45), 2),
     (datetime.time(9, 30),  'Pause'),
     (datetime.time(9, 45), 3),
