@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 API='https://bees.tbs1.de/readmysql.php'
 
