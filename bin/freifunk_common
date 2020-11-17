@@ -1,0 +1,5 @@
+FFHOST=2a03:2260:300b::a2f3:c1ff:fe78:87c
+
+function exec_ff {
+    ssh -6 root@$FFHOST "$*"
+}
