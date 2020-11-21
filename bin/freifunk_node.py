@@ -4,7 +4,7 @@ import json
 from urllib.request import urlopen
 
 api ='http://map.freifunk-bochum.de:4000/nodes.json'
-my_id = 'a0f3c178087c'
+my_ids = ['a0f3c178087c', 'e8de27c997fa']
 
 data = urlopen(api)
 js = json.load(data)
@@ -12,7 +12,7 @@ js = json.load(data)
 for node in js['nodes']:
     node_info = node['nodeinfo']
     node_id = node_info['node_id']
-    if node_id == my_id:
+    if node_id in my_ids:
         netaddr = node_info['network']['addresses']
         stat = node['statistics']
         print('Hostname:', node_info['hostname'])
