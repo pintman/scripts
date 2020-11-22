@@ -45,6 +45,10 @@ stunden_masch = [
     ]
 stunden_masch.extend(stunden_abend)
 
+def weekend():
+    weekday = datetime.datetime.now().weekday()
+    return weekday in (5, 6)  # 0=Monday, ... 6/7=Sat/Sun
+
 def print_stunde(stunden):
     now = datetime.datetime.now().time()
 
@@ -53,7 +57,7 @@ def print_stunde(stunden):
         if i + 1 < len(stunden):
             next_stundenbeginn, _ = stunden[i + 1]
 
-            if stunden_beginn <= now < next_stundenbeginn:
+            if stunden_beginn <= now < next_stundenbeginn and not weekend():
                 std = str(next_stundenbeginn.minute).zfill(2)
                 print(stunde, f'bis {next_stundenbeginn.hour}:{std}')
                 return
