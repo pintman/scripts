@@ -19,7 +19,7 @@ wtf:
         - Berlin: "Europe/Berlin"
         - London: "Europe/London"
       position:
-        top: 0
+        top: 5
         left: 0
         height: 1
         width: 1
@@ -45,7 +45,7 @@ wtf:
         value: "white"
       enabled: true
       position:
-        top: 1
+        top: 4
         left: 0
         height: 1
         width: 2
@@ -58,7 +58,7 @@ wtf:
       enabled: true
       refreshInterval: 30
       position:
-        top: 2
+        top: 0
         left: 0
         height: 1
         width: 1
@@ -82,8 +82,8 @@ wtf:
       enabled: true
       refreshInterval: 30
       position:
-        top: 2
-        left: 2
+        top: 1
+        left: 0
         height: 1
         width: 2
     git:
@@ -92,7 +92,7 @@ wtf:
       dateFormat: "%H:%M %d %b %y"
       enabled: true
       position:
-        top: 3
+        top: 2
         left: 0
         height: 2
         width: 2
@@ -104,7 +104,7 @@ wtf:
       cpuCombined: false
       enabled: true
       position:
-        top: 2
+        top: 5
         left: 1
         height: 1
         width: 1
@@ -120,7 +120,7 @@ wtf:
       enabled: true
       refreshInterval: 60
       position:
-        top: 3
+        top: 2
         left: 2
         height: 1
         width: 2
@@ -132,7 +132,7 @@ wtf:
       enabled: true
       refreshInterval: 60
       position:
-        top: 4
+        top: 3
         left: 2
         height: 2
         width: 2
