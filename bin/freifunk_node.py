@@ -16,10 +16,10 @@ for node in js['nodes']:
         netaddr = node_info['network']['addresses']
         stat = node['statistics']
         print('Hostname:', node_info['hostname'])
-        print('Clients:', stat['clients'])
+        print('Clients:', stat.get('clients'))
         print('Firmware:', node_info['software']['firmware']['release'])
         print('Adresses:', ', '.join(netaddr))
-        print('Average Load:', stat['loadavg'])
-        print('Uptime:', stat['uptime'])
-        print('Memory Usage:', stat['memory_usage'])
+        print('Average Load:', stat.get('loadavg'))
+        print('Uptime:', stat.get('uptime'))
+        print('Memory Usage:', stat.get('memory_usage'))
         print('Online:', node['flags']['online'])
