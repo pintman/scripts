@@ -87,7 +87,7 @@ wtf:
         height: 1
         width: 2
     git:
-      commitCount: 5
+      commitCount: 9
       commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
       dateFormat: "%H:%M %d %b %y"
       enabled: true
@@ -135,5 +135,17 @@ wtf:
         top: 3
         left: 2
         height: 2
+        width: 2
+    metropolrad:
+      title: "Metropolrad Bo-City"
+      type: cmdrunner
+      args: [""]
+      cmd: "tbs1_metropolrad.py"
+      enabled: true
+      refreshInterval: 60
+      position:
+        top: 0
+        left: 3
+        height: 1
         width: 2
  
