@@ -19,7 +19,7 @@ def fetch_bochum():
     return bochum
 
 def main():
-    print('LEHI-FARHRRÄDER AN STANDORTEN DER BOCHUMER INNENSTADT')
+    print('LEIH-FARHRRÄDER AN STANDORTEN DER BOCHUMER INNENSTADT')
     for place in fetch_bochum()['places']:
         if place['name'] in PLACE_NAMES:
             print(f'{place["name"]}: {len(place["bike_list"])}')
