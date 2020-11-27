@@ -4,7 +4,8 @@ import json
 from urllib.request import urlopen
 
 API = 'https://maps.nextbike.net/maps/nextbike-live.json?city=130'
-PLACE_NAMES = ['Technische Berufliche Schule 1', 'Hauptbahnhof', 'Bochumer Fenster / Massenbergstr.']
+PLACE_NAMES = ['Technische Berufliche Schule 1', 'Hauptbahnhof', 
+               'Bochumer Fenster / Massenbergstr.']
 
 def fetch_bochum():
     js = json.load(urlopen(API))
