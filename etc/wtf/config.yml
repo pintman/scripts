@@ -148,4 +148,16 @@ wtf:
         left: 3
         height: 1
         width: 2
+    adventofcode:
+      title: "Advent of Code"
+      type: cmdrunner
+      args: [""]
+      cmd: "/home/pintman/proj/advent_of_code/2020/leaderboard.py"
+      enabled: true
+      refreshInterval: 60
+      position:
+        top: 1
+        left: 4
+        height: 4
+        width: 2
  
