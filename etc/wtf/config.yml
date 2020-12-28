@@ -151,8 +151,7 @@ wtf:
     adventofcode:
       title: "Advent of Code"
       type: cmdrunner
-      args: [""]
-      cmd: "/home/pintman/proj/advent_of_code/2020/leaderboard.py"
+      cmd: "/home/pintman/proj/advent_of_code/leaderboard.py"
       enabled: true
       refreshInterval: 60
       position:
