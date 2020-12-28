@@ -18,6 +18,7 @@ wtf:
       locations:
         - Berlin: "Europe/Berlin"
         - London: "Europe/London"
+        - Istanbul: "Europe/Istanbul"
       position:
         top: 5
         left: 0
