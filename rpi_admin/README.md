@@ -1,7 +1,7 @@
 
 # RPi-Admin
 
-Mit Hilfe von [Ansible](http://www.ansible.com) lässt sich eine Sammlung von
+Mit Hilfe von [Ansible](https://www.ansible.com) lässt sich eine Sammlung von
 Raspberry Pis fernsteuern.
 
 Das Repo enhält eine Datei ``hosts.example``, die als Vorlage dient. Sie kann
@@ -34,7 +34,7 @@ Dann werden die öffentlichen SSH-Keys auf jeden Client aus der ``hosts``-Datei
 ## Aufruf
 
 Die Datei ``setup.yml`` enthält ein sogenanntes
-[Playbook](http://docs.ansible.com/ansible/playbooks.html), mit dem die
+[Playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html), mit dem die
 Rechner vorbereitet werden.
 
 Ein typischer Aufruf wäre 
