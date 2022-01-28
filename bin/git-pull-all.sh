@@ -1,8 +1,9 @@
 #!/bin/sh
 
-for gitdir in */.git; 
+for gitdir in */.git/refs/remotes; 
 do
-  echo "-- $gitdir"
-  git -C $gitdir/.. pull --prune
+  d=$gitdir/../../../
+  echo "-- $d"
+  git -C $d pull --prune
 done
 
