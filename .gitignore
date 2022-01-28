@@ -8,3 +8,4 @@ bin/vnc_viewer_jar
 __pycache__
 .vscode/
 .venv
+*.log
