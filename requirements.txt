@@ -1,3 +1,0 @@
-pymsteams
-click
-selenium
