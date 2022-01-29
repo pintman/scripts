@@ -41,6 +41,7 @@ def select(f:Firefox, id_name, selection_text):
     Select(f.find_element(By.ID, id_name)).select_by_visible_text(selection_text)
 
 def process_klassen(f:Firefox):
+    f.minimize_window()
     select(f, 'klasseOrStudentgroupId', '- Alle -')
 
     time.sleep(FINISH_WAIT_SECONDS)
