@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import time
 import os
 import getpass
 import datetime
@@ -24,6 +23,7 @@ if UNTIS_PASS == '':
 print(f'ENV_VARS: {SCHOOLID=} {UNTIS_USER=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
 
 f = Firefox()
+f.implicitly_wait(FINISH_WAIT_SECONDS)
 
 def login(f:Firefox):
     f.get(URL)
@@ -44,7 +44,6 @@ def process_klassen(f:Firefox):
     f.minimize_window()
     select(f, 'klasseOrStudentgroupId', '- Alle -')
 
-    time.sleep(FINISH_WAIT_SECONDS)
     try:
         tab = f.find_element(By.ID, 'absenceTimesForm.absences')
     except NoSuchElementException:
@@ -67,8 +66,6 @@ def process_klassen(f:Firefox):
 
 login(f)
 f.get(URL_ABSENCE)
-# wait some seconds for page to load
-time.sleep(FINISH_WAIT_SECONDS)
 # navigate to iframe
 iframes = f.find_elements(By.TAG_NAME, 'iframe')
 f.switch_to.frame(iframes[0])
