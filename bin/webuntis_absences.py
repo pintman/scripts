@@ -83,6 +83,7 @@ start_date.clear()
 start_date.send_keys(start_day)
 start_date.send_keys(Keys.TAB)
 
+print(f'# Fehlzeiten der letzten {DAYS_BACK} Tage')
 process_klassen(f)
 
 #f.switch_to_default_content()
