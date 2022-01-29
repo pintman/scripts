@@ -87,4 +87,5 @@ for klasse in KLASSEN:
     process_klasse(klasse)
 
 #f.switch_to_default_content()
-#f.close()
+if input('close? y/n ') == 'y':
+    f.close()
