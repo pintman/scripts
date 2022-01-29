@@ -10,7 +10,8 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 
-URL = 'https://cissa.webuntis.com/WebUntis/?school=bk-bochum#/basic/login'
+SCHOOLID = os.environ.get('SCHOOLID', 'bk-bochum')
+URL = f'https://cissa.webuntis.com/WebUntis/?school={SCHOOLID}#/basic/login'
 URL_ABSENCE = 'https://cissa.webuntis.com/absence-times'
 
 DAYS_BACK = os.environ.get('DAYS_BACK', 30)
@@ -20,7 +21,7 @@ UNTIS_PASS = os.environ.get('UNTIS_PASS', '')
 if UNTIS_PASS == '': 
     UNTIS_PASS = getpass.getpass()
 
-print(f'ENV_VARS: {UNTIS_USER=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
+print(f'ENV_VARS: {SCHOOLID=} {UNTIS_USER=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
 
 f = Firefox()
 
