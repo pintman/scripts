@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
-from logging.config import IDENTIFIER
+from cgitb import text
 from selenium.webdriver import Firefox
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 import os
+import textwrap
 
 URL = 'https://www.schulministerium.nrw.de/BiPo/Stella/online'
 ORT = os.environ.get('ORT', 'Bochum')
@@ -42,7 +43,9 @@ for row in rows:
     cell = row.find_element(By.TAG_NAME, 'td').text
     # remove double white spaces
     cell = " ".join(cell.strip().split())
-    print('- ', cell)
+    print('--')
+    for line in textwrap.wrap(cell):
+        print(line)
 
 if CLOSE_AT_END == 'true':
     f.close()
