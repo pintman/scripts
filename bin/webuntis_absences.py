@@ -13,7 +13,6 @@ from selenium.common.exceptions import NoSuchElementException
 URL = 'https://cissa.webuntis.com/WebUntis/?school=bk-bochum#/basic/login'
 URL_ABSENCE = 'https://cissa.webuntis.com/absence-times'
 
-KLASSEN = os.environ.get('KLASSEN', 'ITF19a,ITF20a,ITF21a')
 DAYS_BACK = os.environ.get('DAYS_BACK', 30)
 FINISH_WAIT_SECONDS = os.environ.get('FINISH_WAIT_SECONDS', 3)
 UNTIS_USER = os.environ.get('UNTIS_USER', 'bak')
@@ -21,8 +20,7 @@ UNTIS_PASS = os.environ.get('UNTIS_PASS', '')
 if UNTIS_PASS == '': 
     UNTIS_PASS = getpass.getpass()
 
-print(f'ENV_VARS: {UNTIS_USER=} {KLASSEN=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
-KLASSEN = KLASSEN.split(',')
+print(f'ENV_VARS: {UNTIS_USER=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
 
 f = Firefox()
 
@@ -41,21 +39,22 @@ def login(f:Firefox):
 def select(f:Firefox, id_name, selection_text):
     Select(f.find_element(By.ID, id_name)).select_by_visible_text(selection_text)
 
-def process_klasse(klasse):    
-    print(f'# Fehlzeiten {klasse}')
-    select(f, 'klasseOrStudentgroupId', klasse)
+def process_klassen():    
+    print(f'# Fehlzeiten')
+    select(f, 'klasseOrStudentgroupId', '- Alle -')
 
     time.sleep(FINISH_WAIT_SECONDS)
     try:
         tab = f.find_element(By.ID, 'absenceTimesForm.absences')
     except NoSuchElementException:
-        print(f'Keine Einträge für {klasse}')
+        print(f'Keine Einträge')
         return
 
     # traverse table
     tab_header = tab.find_elements(By.TAG_NAME, 'th')
     tab_header = [h.text for h in tab_header]
     idx_name = tab_header.index('Schüler*innen')
+    idx_klasse = tab_header.index('Klasse')
     idx_date = tab_header.index('Datum')
     idx_days = tab_header.index('Fehltage')
     idx_txt = tab_header.index('Text')
@@ -63,7 +62,7 @@ def process_klasse(klasse):
     for row in tab_body.find_elements(By.TAG_NAME, 'tr'):
         cells = row.find_elements(By.TAG_NAME, 'td')
         if cells[idx_days].text != '0':
-            print(cells[idx_name].text, cells[idx_date].text, cells[idx_txt].text)
+            print(cells[idx_klasse].text, cells[idx_name].text, cells[idx_date].text, cells[idx_txt].text)
 
 login(f)
 f.get(URL_ABSENCE)
@@ -83,8 +82,7 @@ start_date.clear()
 start_date.send_keys(start_day)
 start_date.send_keys(Keys.TAB)
 
-for klasse in KLASSEN:
-    process_klasse(klasse)
+process_klassen()
 
 #f.switch_to_default_content()
 if input('close? y/n ') == 'y':
