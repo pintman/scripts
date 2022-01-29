@@ -15,10 +15,10 @@ URL_ABSENCE = 'https://cissa.webuntis.com/absence-times'
 KLASSE = os.environ.get('KLASSE', 'ITF19a')
 DAYS_BACK = os.environ.get('DAYS_BACK', 30)
 FINISH_WAIT_SECONDS = os.environ.get('FINISH_WAIT_SECONDS', 3)
-USER = os.environ.get('USER', 'bak')
-PASS = os.environ.get('PASS', '')
-if PASS == '': 
-    PASS = getpass.getpass()
+UNTIS_USER = os.environ.get('UNTIS_USER', 'bak')
+UNTIS_PASS = os.environ.get('UNTIS_PASS', '')
+if UNTIS_PASS == '': 
+    UNTIS_PASS = getpass.getpass()
 
 print(f'{USER=}, {KLASSE=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
 
@@ -28,9 +28,9 @@ def login(f:Firefox):
     f.get(URL)
     for lbl in f.find_elements(By.TAG_NAME, 'label'):
         if lbl.text == 'Benutzername':
-            f.find_element(By.ID, lbl.get_attribute('for')).send_keys(USER)
+            f.find_element(By.ID, lbl.get_attribute('for')).send_keys(UNTIS_USER)
         if lbl.text == 'Passwort':
-            f.find_element(By.ID, lbl.get_attribute('for')).send_keys(PASS)
+            f.find_element(By.ID, lbl.get_attribute('for')).send_keys(UNTIS_PASS)
 
     for btn in f.find_elements(By.TAG_NAME, 'button'):
         if btn.text == 'Login':
