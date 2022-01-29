@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from cgitb import text
 from selenium.webdriver import Firefox
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
