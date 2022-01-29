@@ -18,7 +18,7 @@ FINISH_WAIT_SECONDS = os.environ.get('FINISH_WAIT_SECONDS', 3)
 UNTIS_USER = os.environ.get('UNTIS_USER', 'bak')
 UNTIS_PASS = os.environ.get('UNTIS_PASS', '')
 if UNTIS_PASS == '': 
-    UNTIS_PASS = getpass.getpass()
+    UNTIS_PASS = getpass.getpass("Untis-Passwort: ")
 
 print(f'ENV_VARS: {SCHOOLID=} {UNTIS_USER=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
 
