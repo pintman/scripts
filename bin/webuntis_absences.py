@@ -13,8 +13,8 @@ SCHOOLID = os.environ.get('SCHOOLID', 'bk-bochum')
 URL = f'https://cissa.webuntis.com/WebUntis/?school={SCHOOLID}#/basic/login'
 URL_ABSENCE = 'https://cissa.webuntis.com/absence-times'
 
-DAYS_BACK = os.environ.get('DAYS_BACK', 30)
-FINISH_WAIT_SECONDS = os.environ.get('FINISH_WAIT_SECONDS', 3)
+DAYS_BACK = int(os.environ.get('DAYS_BACK', 30))
+FINISH_WAIT_SECONDS = int(os.environ.get('FINISH_WAIT_SECONDS', 3))
 UNTIS_USER = os.environ.get('UNTIS_USER', 'bak')
 UNTIS_PASS = os.environ.get('UNTIS_PASS', '')
 if UNTIS_PASS == '': 
