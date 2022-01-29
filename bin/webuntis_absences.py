@@ -40,8 +40,7 @@ def login(f:Firefox):
 def select(f:Firefox, id_name, selection_text):
     Select(f.find_element(By.ID, id_name)).select_by_visible_text(selection_text)
 
-def process_klassen():    
-    print(f'# Fehlzeiten')
+def process_klassen(f:Firefox):
     select(f, 'klasseOrStudentgroupId', '- Alle -')
 
     time.sleep(FINISH_WAIT_SECONDS)
@@ -83,7 +82,7 @@ start_date.clear()
 start_date.send_keys(start_day)
 start_date.send_keys(Keys.TAB)
 
-process_klassen()
+process_klassen(f)
 
 #f.switch_to_default_content()
 if input('close? y/n ') == 'y':
