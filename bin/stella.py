@@ -9,9 +9,10 @@ import os
 URL = 'https://www.schulministerium.nrw.de/BiPo/Stella/online'
 ORT = os.environ.get('ORT', 'Bochum')
 UMKREIS = os.environ.get('UMKREIS', 20) # km
+CLOSE_AT_END = os.environ.get('CLOSE_AT_END', 'true')
 
 print(f'Suche nach Stellen in Stella')
-print(f'{ORT=} {UMKREIS=} \n{URL=}')
+print(f'{ORT=} {UMKREIS=} {CLOSE_AT_END=} \n{URL=}')
 
 f = Firefox()
 
@@ -43,4 +44,5 @@ for row in rows:
     cell = " ".join(cell.strip().split())
     print('- ', cell)
 
-f.close()
+if CLOSE_AT_END == 'true':
+    f.close()
