@@ -62,7 +62,11 @@ def process_klassen(f:Firefox):
     for row in tab_body.find_elements(By.TAG_NAME, 'tr'):
         cells = row.find_elements(By.TAG_NAME, 'td')
         if cells[idx_days].text != '0':
-            print(cells[idx_klasse].text, cells[idx_name].text, cells[idx_date].text, cells[idx_txt].text)
+            print(
+                cells[idx_klasse].text, 
+                cells[idx_name].text, 
+                cells[idx_date].text, 
+                cells[idx_txt].text)
 
 login(f)
 f.get(URL_ABSENCE)
