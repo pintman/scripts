@@ -15,7 +15,9 @@ URL_ABSENCE = 'https://cissa.webuntis.com/absence-times'
 
 DAYS_BACK = int(os.environ.get('DAYS_BACK', 30))
 FINISH_WAIT_SECONDS = int(os.environ.get('FINISH_WAIT_SECONDS', 3))
-UNTIS_USER = os.environ.get('UNTIS_USER', 'bak')
+UNTIS_USER = os.environ.get('UNTIS_USER', '')
+if UNTIS_USER == '':
+    UNTIS_USER = input('Untis user: ')
 UNTIS_PASS = os.environ.get('UNTIS_PASS', '')
 if UNTIS_PASS == '': 
     UNTIS_PASS = getpass.getpass("Untis-Passwort: ")
