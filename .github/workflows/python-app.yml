@@ -38,6 +38,7 @@ jobs:
       env:
         TIBROS_USER: '0'
         TIBROS_PASS: '0'
+        UNTIS_USER: '0'
         UNTIS_PASS: '0'
       run: |
         python -m doctest bin/*py
