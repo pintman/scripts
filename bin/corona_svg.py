@@ -17,15 +17,18 @@ datasource=f'https://www.lzg.nrw.de/covid19/daten/covid19_{city_id}.csv'
 fieldname_7day_incidence = 'rateM7Tage'  # oder rateE7Tage
 filename = str(city_id)+'.svg'
 
-with urlopen(datasource) as response:
-    lines = response.readlines()
-    header = str(lines[0]).split(',')
-    index_7day_incidence = header.index(fieldname_7day_incidence)
-    incidence = float(
-            str(lines[-1]).split(',')[index_7day_incidence])
-    incdence_rounded = round(incidence, ndigits=1)
+def main():
+  with urlopen(datasource) as response:
+      lines = response.readlines()
+      header = str(lines[0]).split(',')
+      index_7day_incidence = header.index(fieldname_7day_incidence)
+      incidence = float(
+              str(lines[-1]).split(',')[index_7day_incidence])
+      incdence_rounded = round(incidence, ndigits=1)
 
-    print(f'Writing incidence for city id {city_id} to {filename}')
-    with open(filename, 'wt') as f:
-        f.write(template.format(incidence=incdence_rounded))
+      print(f'Writing incidence for city id {city_id} to {filename}')
+      with open(filename, 'wt') as f:
+          f.write(template.format(incidence=incdence_rounded))
  
+if __name__ == '__main__':
+  main()

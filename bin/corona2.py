@@ -19,23 +19,28 @@ delimiter = ','
 fieldname_7tage_inzidenz = 'rateM7Tage'  # oder rateE7Tage
 steps = '▁▂▃▄▅▆▇█'
 
-# mapping places to incidence
-city_incidence = {}
-for city in city_ids:
-    cid = city_ids[city]
-    lines = urllib.request.urlopen(datasource.format(stadt=cid)).readlines()
-    headline = str(lines[0]).split(delimiter)
-    index_7tage_inzidenz = headline.index(fieldname_7tage_inzidenz)
-    city_incidence[city] = float(
-        str(lines[-1], encoding='UTF8').split(delimiter)[index_7tage_inzidenz])
+def main():
+    # mapping places to incidence
+    city_incidence = {}
+    for city in city_ids:
+        cid = city_ids[city]
+        lines = urllib.request.urlopen(datasource.format(stadt=cid)).readlines()
+        headline = str(lines[0]).split(delimiter)
+        index_7tage_inzidenz = headline.index(fieldname_7tage_inzidenz)
+        city_incidence[city] = float(
+            str(lines[-1], encoding='UTF8').split(delimiter)[index_7tage_inzidenz])
 
-# output configured places
-max_width = 10
-print('Stadt         \tInfizierte/100kEinw. in 7 Tagen\n')
-for stadt in city_ids:
-    inzidenz = city_incidence[stadt]
-    inzidenz_r = round(inzidenz, 1)
-    symbol = int(inzidenz/10) * '*'
-    #symbol = steps[int(inzidenz/10)]
-    print(
-        f'{stadt[:max_width]}   \t{inzidenz_r} \t{symbol}')
+    # output configured places
+    max_width = 10
+    print('Stadt         \tInfizierte/100kEinw. in 7 Tagen\n')
+    for stadt in city_ids:
+        inzidenz = city_incidence[stadt]
+        inzidenz_r = round(inzidenz, 1)
+        symbol = int(inzidenz/10) * '*'
+        #symbol = steps[int(inzidenz/10)]
+        print(
+            f'{stadt[:max_width]}   \t{inzidenz_r} \t{symbol}')
+
+if __name__ == '__main__':
+    main()
+    

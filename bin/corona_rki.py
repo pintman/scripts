@@ -10,28 +10,34 @@ fieldname_meldung = 'MeldeDay'
 staedte = ['SK Bochum', 'SK Dortmund', 'SK Herne', 'SK Essen', 'LK Recklinghausen']
 steps = '▁▂▃▄▅▆▇█'
 
-lines = urllib.request.urlopen(datasource).readlines()
+def main():
 
-headline = str(lines[0]).split(delimiter)
-index_7tage_inzidenz = headline.index(fieldname_7tage_inzidenz)
-index_landkreis = headline.index(fieldname_landkreis)
+    lines = urllib.request.urlopen(datasource).readlines()
 
-# mapping places to incidence
-city_incidence = {}
-# iterating and ignoring first line (headline)
-for line in lines[1:]:
-    line_splitted = str(line).split(delimiter)
-    landkreis = line_splitted[index_landkreis]
-    siebenT_inzidenz = line_splitted[index_7tage_inzidenz]
-    city_incidence[landkreis] = float(siebenT_inzidenz)
+    headline = str(lines[0]).split(delimiter)
+    index_7tage_inzidenz = headline.index(fieldname_7tage_inzidenz)
+    index_landkreis = headline.index(fieldname_landkreis)
 
-# output configured places
-max_width = 14
-print('Stadt         \tInfizierte/100kEinw. in 7 Tagen\n')
-for stadt in staedte:
-    inzidenz = city_incidence[stadt]
-    inzidenz_r = round(inzidenz, 1)
-    symbol = int(inzidenz/10) * '*'
-    #symbol = steps[int(inzidenz/10)]
-    print(
-        f'{stadt[:max_width]}\t{inzidenz_r} \t{symbol}')
+    # mapping places to incidence
+    city_incidence = {}
+    # iterating and ignoring first line (headline)
+    for line in lines[1:]:
+        line_splitted = str(line).split(delimiter)
+        landkreis = line_splitted[index_landkreis]
+        siebenT_inzidenz = line_splitted[index_7tage_inzidenz]
+        city_incidence[landkreis] = float(siebenT_inzidenz)
+
+    # output configured places
+    max_width = 14
+    print('Stadt         \tInfizierte/100kEinw. in 7 Tagen\n')
+    for stadt in staedte:
+        inzidenz = city_incidence[stadt]
+        inzidenz_r = round(inzidenz, 1)
+        symbol = int(inzidenz/10) * '*'
+        #symbol = steps[int(inzidenz/10)]
+        print(
+            f'{stadt[:max_width]}\t{inzidenz_r} \t{symbol}')
+
+if __name__ == '__main__':
+    main()
+    

@@ -20,10 +20,6 @@ UNTIS_PASS = os.environ.get('UNTIS_PASS', '')
 if UNTIS_PASS == '': 
     UNTIS_PASS = getpass.getpass("Untis-Passwort: ")
 
-print(f'ENV_VARS: {SCHOOLID=} {UNTIS_USER=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
-
-f = Firefox()
-f.implicitly_wait(FINISH_WAIT_SECONDS)
 
 def login(f:Firefox):
     f.get(URL)
@@ -68,25 +64,35 @@ def process_klassen(f:Firefox):
                 cells[idx_date].text, 
                 cells[idx_txt].text)
 
-login(f)
-f.get(URL_ABSENCE)
-# navigate to iframe
-iframes = f.find_elements(By.TAG_NAME, 'iframe')
-f.switch_to.frame(iframes[0])
+def main():
 
-select(f, 'excuseStatusId', 'nicht entsch.')
+    print(f'ENV_VARS: {SCHOOLID=} {UNTIS_USER=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
 
-# set start date
-start_day = datetime.date.today() - datetime.timedelta(days=DAYS_BACK)
-start_day = start_day.strftime('%d.%m.%Y')
-start_date = f.find_element(By.ID, 'absenceTimesForm.idstartDate')
-start_date.clear()
-start_date.send_keys(start_day)
-start_date.send_keys(Keys.TAB)
+    f = Firefox()
+    f.implicitly_wait(FINISH_WAIT_SECONDS)
 
-print(f'# Fehlzeiten der letzten {DAYS_BACK} Tage')
-process_klassen(f)
+    login(f)
+    f.get(URL_ABSENCE)
+    # navigate to iframe
+    iframes = f.find_elements(By.TAG_NAME, 'iframe')
+    f.switch_to.frame(iframes[0])
 
-#f.switch_to_default_content()
-if input('close? y/n ') == 'y':
-    f.close()
+    select(f, 'excuseStatusId', 'nicht entsch.')
+
+    # set start date
+    start_day = datetime.date.today() - datetime.timedelta(days=DAYS_BACK)
+    start_day = start_day.strftime('%d.%m.%Y')
+    start_date = f.find_element(By.ID, 'absenceTimesForm.idstartDate')
+    start_date.clear()
+    start_date.send_keys(start_day)
+    start_date.send_keys(Keys.TAB)
+
+    print(f'# Fehlzeiten der letzten {DAYS_BACK} Tage')
+    process_klassen(f)
+
+    #f.switch_to_default_content()
+    if input('close? y/n ') == 'y':
+        f.close()
+
+if __name__ == '__main__':
+    main()
