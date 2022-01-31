@@ -41,6 +41,10 @@ def main():
     print('exportiere IHK-Anträge')
     
     login(f)
+    if 'captchaGuard' in f.current_url:
+        print('Löse das CAPTCHA, drücke danach enter zum Fortfahren')
+        input()
+
     f.get(URL_PRUEFER)
 
     Select(element_by_name(f, 'ptermin')).select_by_index(1)
