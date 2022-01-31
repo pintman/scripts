@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import urllib.request
+import requests
 
 city_ids = { 
     "Bochum":5911, 
@@ -22,13 +22,14 @@ steps = '▁▂▃▄▅▆▇█'
 def main():
     # mapping places to incidence
     city_incidence = {}
+    headers= { 'Referer': 'https://www.lzg.nrw.de/covid19/covid19.html' }
     for city in city_ids:
         cid = city_ids[city]
-        lines = urllib.request.urlopen(datasource.format(stadt=cid)).readlines()
+        lines = requests.get(datasource.format(stadt=cid), headers=headers).text.split('\n')
         headline = str(lines[0]).split(delimiter)
         index_7tage_inzidenz = headline.index(fieldname_7tage_inzidenz)
         city_incidence[city] = float(
-            str(lines[-1], encoding='UTF8').split(delimiter)[index_7tage_inzidenz])
+            str(lines[-2]).split(delimiter)[index_7tage_inzidenz])
 
     # output configured places
     max_width = 10
@@ -36,7 +37,7 @@ def main():
     for stadt in city_ids:
         inzidenz = city_incidence[stadt]
         inzidenz_r = round(inzidenz, 1)
-        symbol = int(inzidenz/10) * '*'
+        symbol = int(inzidenz/100) * '*'
         #symbol = steps[int(inzidenz/10)]
         print(
             f'{stadt[:max_width]}   \t{inzidenz_r} \t{symbol}')
