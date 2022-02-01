@@ -40,12 +40,11 @@ def print_stunde(stunden):
 
             if stunden_beginn <= now < next_stundenbeginn and not weekend():
                 std = str(next_stundenbeginn.minute).zfill(2)
-                print(stunde, f'bis {next_stundenbeginn.hour}:{std}')
+                print(f'Std. {stunde} bis {next_stundenbeginn.hour}:{std}')
                 return
 
         else: # keine nächste Stunde
             print("Tagesende")
 
 if __name__ == "__main__":
-    print("Allgemeine Stundentafel: ", end="")
     print_stunde(stunden_allgemein)
