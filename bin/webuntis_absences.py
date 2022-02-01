@@ -37,7 +37,11 @@ def login(f:Firefox):
             btn.click()
 
 def select(f:Firefox, id_name, selection_text):
-    Select(f.find_element(By.ID, id_name)).select_by_visible_text(selection_text)
+    sel = Select(f.find_element(By.ID, id_name))       
+    for option in sel.options:
+        if selection_text.lower() in option.text.lower():
+            sel.select_by_visible_text(option.text)
+            return
 
 def process_klassen(f:Firefox):
     f.minimize_window()
