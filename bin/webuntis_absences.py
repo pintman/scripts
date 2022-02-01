@@ -3,6 +3,7 @@
 import os
 import getpass
 import datetime
+import click
 from selenium.webdriver import Firefox
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
@@ -66,7 +67,11 @@ def process_klassen(f:Firefox):
                 cells[idx_date].text, 
                 cells[idx_txt].text)
 
-def main():
+
+@click.command()
+@click.option('--name', default='', help='Beschränke Anzeige auf Schülernamen' )
+def show(name):
+    'Abwesenheiten listen'
 
     print(f'ENV_VARS: {SCHOOLID=} {UNTIS_USER=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
 
@@ -89,6 +94,14 @@ def main():
     start_date.send_keys(start_day)
     start_date.send_keys(Keys.TAB)
 
+    # search for student
+    if name != '':
+        sel = Select(f.find_element(By.ID, 'studentId'))       
+        for option in sel.options:
+            if name.lower() in option.text.lower():
+                sel.select_by_visible_text(option.text)
+                break
+
     print(f'# Unentschuldigte Fehlzeiten der letzten {DAYS_BACK} Tage')
     process_klassen(f)
 
@@ -97,4 +110,4 @@ def main():
         f.close()
 
 if __name__ == '__main__':
-    main()
+    show()
