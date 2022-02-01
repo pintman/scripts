@@ -14,7 +14,6 @@ SCHOOLID = os.environ.get('SCHOOLID', 'bk-bochum')
 URL = f'https://cissa.webuntis.com/WebUntis/?school={SCHOOLID}#/basic/login'
 URL_ABSENCE = 'https://cissa.webuntis.com/absence-times'
 
-DAYS_BACK = int(os.environ.get('DAYS_BACK', 30))
 FINISH_WAIT_SECONDS = int(os.environ.get('FINISH_WAIT_SECONDS', 3))
 UNTIS_USER = os.environ.get('UNTIS_USER', '')
 if UNTIS_USER == '':
@@ -74,10 +73,12 @@ def process_klassen(f:Firefox):
 
 @click.command()
 @click.option('--name', default='', help='Beschränke Anzeige auf Schülernamen' )
-def show(name):
+@click.option('--days_back', default=30, 
+    help='Anzahl betrachteter Tage in der Vergangenheit (default 30)')
+def show(name, days_back):
     'Abwesenheiten listen'
 
-    print(f'ENV_VARS: {SCHOOLID=} {UNTIS_USER=} {DAYS_BACK=} {FINISH_WAIT_SECONDS=}')
+    print(f'ENV_VARS: {SCHOOLID=} {UNTIS_USER=} {FINISH_WAIT_SECONDS=}')
 
     f = Firefox()
     f.implicitly_wait(FINISH_WAIT_SECONDS)
@@ -91,7 +92,7 @@ def show(name):
     select(f, 'excuseStatusId', 'nicht entsch.')
 
     # set start date
-    start_day = datetime.date.today() - datetime.timedelta(days=DAYS_BACK)
+    start_day = datetime.date.today() - datetime.timedelta(days=days_back)
     start_day = start_day.strftime('%d.%m.%Y')
     start_date = f.find_element(By.ID, 'absenceTimesForm.idstartDate')
     start_date.clear()
@@ -100,13 +101,9 @@ def show(name):
 
     # search for student
     if name != '':
-        sel = Select(f.find_element(By.ID, 'studentId'))       
-        for option in sel.options:
-            if name.lower() in option.text.lower():
-                sel.select_by_visible_text(option.text)
-                break
+        select(f, 'studentId', name)
 
-    print(f'# Unentschuldigte Fehlzeiten der letzten {DAYS_BACK} Tage')
+    print(f'# Unentschuldigte Fehlzeiten der letzten {days_back} Tage')
     process_klassen(f)
 
     #f.switch_to_default_content()
