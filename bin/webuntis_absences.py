@@ -43,7 +43,6 @@ def select(f:Firefox, id_name, selection_text):
             return
 
 def process_klassen(f:Firefox):
-    f.minimize_window()
     select(f, 'klasseOrStudentgroupId', '- Alle -')
 
     try:
@@ -75,7 +74,9 @@ def process_klassen(f:Firefox):
 @click.option('--name', default='', help='Beschränke Anzeige auf Schülernamen' )
 @click.option('--days_back', default=30, 
     help='Anzahl betrachteter Tage in der Vergangenheit (default 30)')
-def show(name, days_back):
+@click.option('--minimize', default=False, 
+    help='Minimiere das Browserfenter (default False)')
+def show(name, days_back, minimize):
     'Abwesenheiten listen'
 
     print(f'ENV_VARS: {SCHOOLID=} {UNTIS_USER=} {FINISH_WAIT_SECONDS=}')
@@ -104,6 +105,8 @@ def show(name, days_back):
         select(f, 'studentId', name)
 
     print(f'# Unentschuldigte Fehlzeiten der letzten {days_back} Tage')
+    if minimize:
+        f.minimize_window()
     process_klassen(f)
 
     #f.switch_to_default_content()
