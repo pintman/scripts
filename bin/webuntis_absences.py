@@ -3,6 +3,7 @@
 import os
 import getpass
 import datetime
+import time
 import click
 from selenium.webdriver import Firefox
 from selenium.webdriver.common.by import By
@@ -44,6 +45,7 @@ def select(f:Firefox, id_name, selection_text):
 
 def process_klassen(f:Firefox):
     select(f, 'klasseOrStudentgroupId', '- Alle -')
+    time.sleep(1)
 
     try:
         tab = f.find_element(By.ID, 'absenceTimesForm.absences')
