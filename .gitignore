@@ -10,3 +10,4 @@ __pycache__
 .venv
 *.log
 poetry.lock
+sherlock.jar
