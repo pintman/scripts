@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 
 from selenium.webdriver import Firefox
-from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
-import os
-import textwrap
 
 URL = 'https://stadtbuecherei.bochum.de/opax/de/qsel.html.S'
 
