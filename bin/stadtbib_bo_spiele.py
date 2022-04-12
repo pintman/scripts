@@ -9,6 +9,7 @@ def main():
     print(f'Brettspiele in der Bochumer Stadtbücherei')
 
     f = Firefox()
+    f.set_page_load_timeout(30)
 
     # navigate to target page and start query
     f.get(URL)
