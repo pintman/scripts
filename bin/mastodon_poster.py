@@ -1,3 +1,5 @@
+#!/bin/env python3
+
 from mastodon import Mastodon
 import os
 
@@ -32,6 +34,8 @@ def main():
     )
     mastodon.log_in(username=USER, password=PASSWORD)
 
+    print('sending msg to mastodon\n' + \
+        f'{API = }\n{TO =} \n{USER = }\n{MSG = }')
     mastodon.status_post(f'@{TO} {MSG}', visibility='direct')
 
 
