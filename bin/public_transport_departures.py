@@ -14,7 +14,7 @@ from pyhafas.profile import DBProfile
 
 CITY = "Bochum"
 STATION_NAME = "Bochum Hbf"
-DUATION_MINUTES = 30
+DUATION_MINUTES = 20
 
 # Creating client with the default DB profile
 db_profile = DBProfile()
