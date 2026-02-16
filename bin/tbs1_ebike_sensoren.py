@@ -50,10 +50,15 @@ Beispiel payload
 ]
 '''
 
-for sid in ids:
-    js = json.load(urlopen(api.format(id=sid)))
-    most_recent = 0
-    print(f'Sensor #{sid}, last update: {js[most_recent]["timestamp"]}')
-    results = {}
-    for entry in js[most_recent]['sensordatavalues']:
-        print(f"{entry['value_type']}: {entry['value']}")
+def main():
+    for sid in ids:
+        js = json.load(urlopen(api.format(id=sid)))
+        most_recent = 0
+        print(f'Sensor #{sid}, last update: {js[most_recent]["timestamp"]}')
+        results = {}
+        for entry in js[most_recent]['sensordatavalues']:
+            print(f"{entry['value_type']}: {entry['value']}")
+
+if __name__ == "__main__":
+    main()
+    
