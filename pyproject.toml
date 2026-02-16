@@ -9,6 +9,8 @@ python = "^3.7"
 pymsteams = "^0.2.1"
 click = "^8.0.3"
 selenium = "^4.1.0"
+"Mastodon.py" = "^1.5.1"
+pyhafas = "^0.5.0"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.12.2"
