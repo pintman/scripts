@@ -5,16 +5,16 @@ description = ""
 authors = ["Marco Bakera <marco@bakera.de>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.13"
 pymsteams = "^0.2.1"
 click = "^8.0.3"
 selenium = "^4.1.0"
 "Mastodon.py" = "^1.5.1"
 pyhafas = "^0.5.0"
+flake8 = "^7.3.0"
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^2.12.2"
-flake8 = "^4.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
