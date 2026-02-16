@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 # for the given git Repo, list authors and the number of commits.
 
