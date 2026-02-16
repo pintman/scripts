@@ -3,4 +3,5 @@ set tabstop=4
 :syntax on
 
 set wildmenu
+set ruler
 
