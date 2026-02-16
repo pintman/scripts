@@ -12,7 +12,7 @@ selenium = "^4.1.0"
 "Mastodon.py" = "^1.5.1"
 pyhafas = "^0.5.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pylint = "^2.12.2"
 flake8 = "^4.0.1"
 
