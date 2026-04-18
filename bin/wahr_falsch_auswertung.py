@@ -50,7 +50,7 @@ def grade(input_path: str, output_path: str):
     df.to_excel(output_path, index=False)
     print(f"✅  Gespeichert: {output_path}")
     print()
-    print(df[["Name"] + punkte_cols + ["Gesamtpunktzahl"]].to_string(index=False))
+    print(df[["Name", "Gesamtpunktzahl"]].to_string(index=False))
 
 
 if __name__ == "__main__":
