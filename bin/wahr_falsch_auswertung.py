@@ -45,7 +45,7 @@ def grade(input_path: str, output_path: str):
         df.loc[(df[pc] == 0) & has_answer, pc] = -1
 
     # Gesamtpunktzahl neu berechnen
-    df["Gesamtpunktzahl"] = max(0, df[punkte_cols].sum(axis=1))
+    df["Gesamtpunktzahl"] = df[punkte_cols].sum(axis=1).clip(lower=0)
 
     df.to_excel(output_path, index=False)
     print(f"✅  Gespeichert: {output_path}")
