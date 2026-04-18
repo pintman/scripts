@@ -1,3 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-curl "https://www.bakera.de/dokuwiki/doku.php/$1?do=export_raw"
+echo "$0 PAGENAME"
+
+set -xeu
+
+curl "https://www.bakera.de/doku.php/$1?do=export_raw"
