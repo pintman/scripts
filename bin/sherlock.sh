@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# https://warwick.ac.uk/fac/sci/dcs/research/ias/software/sherlock/
+# Software for detecting plagiarism
+
 URL=https://warwick.ac.uk/fac/sci/dcs/research/ias/software/sherlock/sherlock.jar
 
 TGT=$(dirname "$0")
