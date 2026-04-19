@@ -1,4 +1,4 @@
-#!/usr/bin/env poetry run python
+#!/usr/bin/env python3
 
 # write a program that can manipulate xlsx files.
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env poetry run python3
+#!/usr/bin/env python3
 
 from selenium.webdriver import Firefox
 from selenium.webdriver.support.ui import Select

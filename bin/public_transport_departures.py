@@ -1,4 +1,4 @@
-#!/usr/bin/env poetry run python3
+#!/usr/bin/env python3
 
 """
 Fetch public transport departures from a given station. Station name, city name

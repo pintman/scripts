@@ -1,4 +1,4 @@
-#!/bin/env poetry run python3
+#!/bin/env python3
 
 from mastodon import Mastodon
 import os
