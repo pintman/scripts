@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 
@@ -13,15 +14,22 @@ pip install ruff findlike
 # -s Cause find to traverse the file hierarchies in lexicographical
 # -order, i.e., alphabetical order within each directory.
 
+# check if sorting option -s available (BSD) or not (GNU)
+if find -s . -maxdepth 0 2>/dev/null; then
+    SORT_OPT=-s
+else
+    SORT_OPT=""
+fi
+
 find \
-     -s \
+     $SORT_OPT \
      . \
      -name "*py" \
      -exec ls {} ";" \
      -execdir ruff check -q {} ";" \
      > check.log
 
-find -s . \
+find $SORT_OPT . \
      -name "*py" \
      -exec echo "---- {}" ";" \
      -exec findlike \
