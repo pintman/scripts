@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 URL = 'https://stadtbuecherei.bochum.de/opax/de/qsel.html.S'
 
 def main():
-    print(f'Brettspiele in der Bochumer Stadtbücherei')
+    print('Brettspiele in der Bochumer Stadtbücherei')
 
     f = Firefox()
     f.set_page_load_timeout(30)

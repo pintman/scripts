@@ -1,6 +1,5 @@
 import multiprocessing
 import subprocess
-import os
 
 # inspired by http://stackoverflow.com/questions/21225464/fast-ping-sweep-in-python
 

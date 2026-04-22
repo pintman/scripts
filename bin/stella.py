@@ -12,7 +12,7 @@ UMKREIS = os.environ.get('UMKREIS', 20) # km
 CLOSE_AT_END = os.environ.get('CLOSE_AT_END', 'true')
 
 def main():
-    print(f'Suche nach Stellen in Stella')
+    print('Suche nach Stellen in Stella')
     print(f'{ORT=} {UMKREIS=} {CLOSE_AT_END=} \n{URL=}')
 
     f = Firefox()
