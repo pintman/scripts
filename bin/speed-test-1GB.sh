@@ -2,7 +2,5 @@
 
 set -e
 
-TMPFILE=/tmp/test.bin
+curl -o /dev/null https://ash-speed.hetzner.com/1GB.bin
 
-curl -o $TMPFILE https://ash-speed.hetzner.com/1GB.bin
-rm  $TMPFILE
