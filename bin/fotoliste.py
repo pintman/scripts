@@ -39,7 +39,7 @@ def create_table_rows(images_files, entries_per_row=5):
     html = "<tr>"
 
     for image in images_files:
-        if not (image.endswith(".jpg") or image.endswith('.png')):
+        if not (image.endswith(".jpg") or image.endswith('.png') or image.endswith('.jpeg')):
             print("ignoring", image)
             continue
 
