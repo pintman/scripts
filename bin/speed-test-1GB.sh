@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
-curl -o /tmp/test.bin https://ash-speed.hetzner.com/1GB.bin
+set -e
 
+TMPFILE=/tmp/test.bin
 
+curl -o $TMPFILE https://ash-speed.hetzner.com/1GB.bin && rm $TMPFILE
