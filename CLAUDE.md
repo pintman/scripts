@@ -71,3 +71,13 @@ Repo: es baut ein Wegwerf-venv, führt `ruff check` und `findlike`
 - Shell-Skripte nutzen meist `#!/bin/sh` oder `#!/bin/bash`; POSIX-nah
   bleiben, außer die jeweilige Datei nutzt bereits Bash-spezifische
   Features.
+
+## Agent skills
+
+### Issue tracker
+
+Issues liegen in GitHub Issues (`pintman/scripts`, via `gh`). See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Single-context: `CONTEXT.md` + `docs/adr/` im Repo-Root. See `docs/agents/domain.md`.
