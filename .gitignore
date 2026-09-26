@@ -9,7 +9,6 @@ __pycache__
 .vscode/
 .venv
 *.log
-poetry.lock
 sherlock.jar
 mastodon_poster_clientcred.secret
 .env
