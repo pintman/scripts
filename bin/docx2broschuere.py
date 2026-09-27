@@ -1,7 +1,7 @@
 #!/usr/bin/env -S pipx run
 # /// script
 # requires-python = ">=3.12"
-# dependencies = ["click", "pypdf"]
+# dependencies = ["click>=8,<9", "pypdf>=6,<7"]
 # ///
 """
 Erzeugt aus einer DOCX- (oder PDF-)Datei mit 4 A4-Seiten ein PDF für eine

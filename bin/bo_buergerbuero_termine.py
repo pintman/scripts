@@ -1,7 +1,7 @@
 #!/usr/bin/env -S pipx run
 # /// script
 # requires-python = ">=3.12"
-# dependencies = ["requests"]
+# dependencies = ["requests>=2,<3"]
 # ///
 
 import requests

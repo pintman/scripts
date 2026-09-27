@@ -1,7 +1,7 @@
 #!/usr/bin/env -S pipx run
 # /// script
 # requires-python = ">=3.12"
-# dependencies = ["pandas", "openpyxl"]
+# dependencies = ["pandas>=3,<4", "openpyxl>=3,<4"]
 # ///
 
 # write a program that can manipulate xlsx files.

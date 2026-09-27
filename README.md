@@ -14,9 +14,12 @@ im Skript selbst an und werden über `pipx run` gestartet. Sie sind damit ohne
 #!/usr/bin/env -S pipx run
 # /// script
 # requires-python = ">=3.12"
-# dependencies = ["requests"]
+# dependencies = ["requests>=2,<3"]
 # ///
 ```
+
+Versionen werden mit Unter- und Obergrenze der Hauptversion angegeben
+(`>=X,<X+1`): Bugfixes kommen automatisch, API-Brüche nicht.
 
 ```bash
 ./bin/bo_buergerbuero_termine.py
