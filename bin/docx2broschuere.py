@@ -1,4 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S pipx run
+# /// script
+# requires-python = ">=3.12"
+# dependencies = ["click", "pypdf"]
+# ///
 """
 Erzeugt aus einer DOCX- (oder PDF-)Datei mit 4 A4-Seiten ein PDF für eine
 A3-Broschüre (ein Blatt A3, einmal gefaltet).
@@ -10,7 +14,7 @@ Ergebnis: 2 Seiten A3 quer
 Drucken: A3, beidseitig, Wenden an der KURZEN Kante.
 
 Voraussetzungen unter WSL (Ubuntu):
-  sudo apt install libreoffice-writer python3-pypdf python3-click
+  sudo apt install libreoffice-writer pipx
 
 Aufruf:
   docx2broschuere.py /mnt/c/Users/.../flyer.docx [ausgabe.pdf]
