@@ -11,7 +11,7 @@ Dieses Repo ist eine private Sammlung eigenständiger Skripte.
 - `rpi_admin/` — Ansible-Playbooks (`setup.yml`, `abgaben_einsammeln.yml`) zur
   Administration einer Flotte von Raspberry Pis im Klassenraum, Details in
   `rpi_admin/README.md`.
-- `etc/` — diverse Konfiguration (`pylintrc`, `vimrc`, `wtf/`).
+- `etc/` — diverse Konfiguration (`vimrc`, `wtf/`).
 
 ## Konventionen in den Skripten
 
